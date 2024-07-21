@@ -51,6 +51,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('autoprefixer')({
+    overrideBrowserslist: ['last 2 versions', 'Safari >= 10'],
+  }),],
 };
 export default config;

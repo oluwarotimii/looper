@@ -1,8 +1,8 @@
-"use client";
+// "use client";
 import { motion } from "framer-motion";
 import { Facebook, HambergerMenu, Instagram } from "iconsax-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Logo } from "./logo";
 
 export const Header = () => {
@@ -61,13 +61,22 @@ export const Header = () => {
       </div>
 
       {/* small scrren header */}
-      <div className="flex justify-between items-center fixed w-dvw p-3 sm:hidden smallPhone:flex">
+      <div
+        className={`flex justify-between items-center fixed w-dvw p-3 sm:hidden smallPhone:flex z-[20000001] ${
+          scrollHeight && "bg-gray-950"
+        } `}
+      >
         <HambergerMenu
           onClick={() => setisOpen(true)}
           size="32"
           className="text-green-600 hover:cursor-pointer"
         />
         <Logo />
+        <div>
+          <p className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer">
+            Contact Us
+          </p>
+        </div>
       </div>
       {isOpen && (
         <div className="bg-gray-800 bg-opacity-80 flex justify-center items-center w-dvw h-dvh fixed z-30">
@@ -85,14 +94,16 @@ export const Header = () => {
               <motion.div className="overflow-hidden " key={index}>
                 <motion.button
                   className="text-3xl font-semibold hover:underline"
-                  onClick={() => {}}
+                  onClick={() => {
+                    setisOpen(false);
+                  }}
                   initial={{ y: "100%" }}
                   whileInView={{
                     y: "0",
                     transition: { duration: 0.3, delay: 0.2 * index },
                   }}
                 >
-                  #{link.label.toUpperCase()}
+                  <Link href={link.path}>#{link.label.toUpperCase()}</Link>
                 </motion.button>
               </motion.div>
             ))}

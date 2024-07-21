@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowCircleDown, ArrowCircleRight2 } from "iconsax-react";
+import { ArrowCircleDown, ArrowCircleRight, ArrowCircleRight2, Shop, ShoppingBag } from "iconsax-react";
 import { Header } from "./header";
 
 export const Landing = () => {
@@ -38,8 +38,9 @@ export const Landing = () => {
           </p>
 
           <button className="text-slate-100 border p-3  rounded-[200px] mt-8  text-xs sm:w-[180px] hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center smallPhone:border-1">
-            <p>shop with us</p>{" "}
-            <ArrowCircleRight2 size="22" className="text-green-600" />
+            <p>contact us</p>{" "}
+            <ArrowCircleRight size="22" className="text-green-600" />
+            
           </button>
         </div>
         <div className="flex place-items-end relative">

@@ -26,7 +26,7 @@ export const Cta = () => {
           backgroundSize: "cover",
         }}
       >
-        <p className="lg:text-5xl md:text-3xl text-slate-800 font-semibold sm:text-5xl">
+        <p className="lg:text-5xl md:text-3xl xs:text-5xl xs:w-[80%] xs:text-center text-slate-800 font-semibold sm:text-5xl">
           Nothing but the best prices &<br></br> the freshest produce
           <span className="text-purple-600 text-6xl">*</span>
         </p>{" "}

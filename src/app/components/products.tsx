@@ -34,7 +34,7 @@ export const Products = () => {
   return (
     <div
       className="pb-80 flex items-start lg:p-40 md:wp-20 sm:p-10 gap-10 sm:flex-row xs:flex-col xs:p-10 smallPhone:p-20"
-      id="product"
+      id="products"
     >
       {" "}
       <motion.div

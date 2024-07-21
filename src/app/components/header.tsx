@@ -73,14 +73,24 @@ export const Header = () => {
         />
         <Logo />
         <div>
-          <p className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer">
+          <p className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer ">
             Contact Us
           </p>
         </div>
       </div>
       {isOpen && (
-        <div className="bg-gray-800 bg-opacity-80 flex justify-center items-center w-dvw h-dvh fixed z-30">
-          <motion.div className="bg-slate-50 rounded-lg flex items-center justify-center flex-col  w-[80%] gap-6 p-20">
+        <div
+          className="bg-gray-800 bg-opacity-80 flex justify-center items-center w-dvw h-dvh fixed z-30"
+          onClick={() => setisOpen(false)}
+        >
+          <motion.div
+            className="bg-slate-50 rounded-lg  w-[80%] p-5"
+            onClick={(e) => e.stopPropagation()}
+            initial={{ y: "100%" }}
+            whileInView={{
+              y: "0",
+            }}
+          >
             <div className="w-full flex items-end box-border justify-end ">
               <button
                 className="border rounded-[200px] border-gray-800 px-5 py-2"
@@ -89,27 +99,32 @@ export const Header = () => {
                 close
               </button>
             </div>
-            <p className="text-[3rem] text-gray-300 font-semibold">MENU</p>
-            {links.map((link, index) => (
-              <motion.div className="overflow-hidden " key={index}>
-                <motion.button
-                  className="text-3xl font-semibold hover:underline"
-                  onClick={() => {
-                    setisOpen(false);
-                  }}
-                  initial={{ y: "100%" }}
-                  whileInView={{
-                    y: "0",
-                    transition: { duration: 0.3, delay: 0.2 * index },
-                  }}
-                >
-                  <Link href={link.path}>#{link.label.toUpperCase()}</Link>
-                </motion.button>
-              </motion.div>
-            ))}
-            <p className="text-[3rem] text-gray-500 font-semibold flex">
-              <Instagram size={30} /> <Facebook size={30} />
-            </p>
+            <div className=" pb-5 flex items-center justify-center flex-col  gap-6">
+              {" "}
+              <img src="/logo-2.png" alt="logo" className="invert w-[300px]" />
+              <hr className="border border-slate-300 w-full border-dashed"></hr>
+              <p className="text-[1rem] text-gray-300 font-semibold">MENU</p>
+              {links.map((link, index) => (
+                <motion.div className="overflow-hidden " key={index}>
+                  <motion.button
+                    className="text-3xl font-semibold hover:underline"
+                    onClick={() => {
+                      setisOpen(false);
+                    }}
+                    initial={{ y: "100%" }}
+                    whileInView={{
+                      y: "0",
+                      transition: { duration: 0.3, delay: 0.2 * index },
+                    }}
+                  >
+                    <Link href={link.path}>#{link.label.toUpperCase()}</Link>
+                  </motion.button>
+                </motion.div>
+              ))}
+              <p className="text-[3rem] text-gray-500 font-semibold flex">
+                <Instagram size={30} /> <Facebook size={30} />
+              </p>
+            </div>
           </motion.div>
         </div>
       )}

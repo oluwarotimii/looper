@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowCircleDown, ArrowCircleRight, ArrowCircleRight2, Shop, ShoppingBag } from "iconsax-react";
+import { ArrowCircleDown, ArrowCircleRight } from "iconsax-react";
 import { Header } from "./header";
 
 export const Landing = () => {

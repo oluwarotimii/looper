@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -23,13 +24,29 @@ export const Logo = () => {
       },
     },
   };
+
+  const [screenWidth, setscreenWidth] = useState(0);
+
+  useEffect(() => {
+    if (window != undefined) {
+      setscreenWidth(window.innerWidth);
+      console.log(screenWidth);
+    }
+  }, []);
+
   return (
     <motion.svg
-      initial={{ width: "300pt", height: "76pt" }}
+      initial={{
+        width: screenWidth < 900 ? "100pt" : "800pt",
+        height: screenWidth < 900 ? "50px" : "200pt",
+        marginTop: 0,
+      }}
       whileInView={{
         type: "bounce",
-        scale: 0.7,
-        // marginTop:-2,
+        // scale: 0.2,
+        marginTop: screenWidth < 900 ? 0 : -20,
+        width: screenWidth < 900 ? "100pt" : "200pt",
+        height: screenWidth < 900 ? "50px" : "70pt",
         transition: {
           duration: 0.4,
           ease: "easeInOut",

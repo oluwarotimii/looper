@@ -1,9 +1,11 @@
+"use client";
 import { motion } from "framer-motion";
 import { Award, Facebook, Instagram } from "iconsax-react";
 import avatar from "../../../public/avatar.png";
-import imaobong from "../../../public/ima-2.png";
-import daniel from "../../../public/farm-guy-2.png";
+import imaobong from "../../../public/ima.jpg";
+import daniel from "../../../public/farm-guy-3.png";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export const Team = () => {
   const team = [
@@ -36,31 +38,43 @@ export const Team = () => {
       picture: avatar,
     },
   ];
+
+  const [screenWidth, setscreenWidth] = useState(0);
+
+  useEffect(() => {
+    if (window != undefined) {
+      setscreenWidth(window.innerWidth);
+      console.log(screenWidth);
+    }
+  }, []);
   return (
     <div
-      className="pb-80 flex items-start lg:p-40 md:p-20 sm:p-10  gap-10 w-dvw"
+      className="pb-80 flex items-start lg:p-40 md:p-20 sm:p-10  gap-10 w-dvw xs:p-10 xs:flex-col sm:flex-row"
       id="team"
     >
-      <div className="sticky lg:top-[200px] md:top-[50px] sm:top-[50px]">
-        <p className="text-sm font-semibold text-purple-600">-Team</p>
-        <p className="lg:text-5xl md:text-2xl  sm:text-5xl sm:w-[350px] lg:w-[600px] md:w-[300px]">
-          Teamwork, Smiles, People & Teeth.{" "}
-          <span className="text-purple-600 lg:text-6xl md:text-4xl">*</span>
-        </p>
-        <div className="mt-3 flex gap-1 lg:max-h-[50%] lg:h-[50dvh] md:h-[40vh] sm:h-[30vh]">
-          <div className="overflow-hidden box-border ">
+      <div className="sticky lg:top-[200px] md:top-[50px] sm:top-[50px] smallPhone:flex smallPhone:flex-row xs:flex xs:flex-col sm:flex-col">
+        <div>
+          {" "}
+          <p className="text-sm font-semibold text-purple-600">-Team</p>
+          <p className="lg:text-5xl md:text-2xl  sm:text-5xl sm:w-[350px] lg:w-[600px] md:w-[300px] xs:text-4xl xs:w-[250px]">
+            Teamwork, Smiles, People & Teeth.{" "}
+            <span className="text-purple-600 lg:text-6xl md:text-4xl">*</span>
+          </p>
+        </div>
+
+        <div className="mt-3 flex gap-1 lg:max-h-[50%] lg:h-[50dvh] md:h-[40vh] sm:h-[30vh] xs:h-[30vh] smallPhone:h-[40vh]">
+          <div className="overflow-hidden box-border lg:w-[250px] md:w-[180px]  xs:w-full  lg:h-full md:h-full  sm:h-full  smallPhone:h-full xs:h-full   rounded-lg">
             <motion.img
               src={"/team-2.jpg"}
               initial={{ y: "100%" }}
               animate={{ y: "0" }}
               transition={{ duration: 0.2 }}
               alt={"broiler"}
-              className="rounded-lg  lg:w-[600px] md:w-[400px]   lg:h-full md:h-full  sm:h-full sm:w-[400px] object-cover"
+              className=" object-cover h-full w-full"
             />
           </div>
 
-          <div className="flex flex-col gap-1 lg:w-[600px] md:w-[400px]  box-border h-full sm:w-[400px] ">
-            {" "}
+          <div className="flex flex-col gap-1 lg:w-[300px] md:w-[240px]  box-border h-full sm:w-[400px]  xs:w-full">
             <motion.img
               src={"/team-3.jpg"}
               initial={{ y: "100%" }}
@@ -81,7 +95,7 @@ export const Team = () => {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 w-full box-border gap-1 sm:ml-[50px]">
+      <div className="grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-2 smallPhone:grid-cols-2 xs:grid-cols-1  w-full box-border gap-1 sm:ml-[50px]">
         {team.map((member, index) => (
           <motion.div
             className="border border-slate-300 rounded-md p-2 lg:w-full md:w-[80%] box-border bg-white  sm:w-[250px]"
@@ -91,7 +105,7 @@ export const Team = () => {
             }}
             whileInView={{
               y: 50,
-              rotateZ: index % 2 === 0 ? -5 : 5,
+              rotateZ: screenWidth < 600 ? 0 : index % 2 === 0 ? -5 : 5,
               transition: {
                 type: "spring",
                 bounce: 0.4,
@@ -104,14 +118,14 @@ export const Team = () => {
               rotateZ: 0,
               zIndex: 20000000,
               y: 0,
-              scale: 1.1,
+              scale: screenWidth < 600 ? 1 : 1.1,
               cursor: "pointer",
             }}
           >
             <Image
               src={member?.picture}
               alt={member.name + "'s image"}
-              className="rounded-lg  lg:w-full lg:h-[300px]  md:w-full md:h-[200px]  box-border lg:object-cover md:object-contain bg-yellow-300"
+              className="rounded-lg  lg:w-full lg:h-[300px] md:w-full md:h-[200px]  box-border lg:object-cover md:object-cover  bg-yellow-300"
             />
             <div>
               <p className="text-md font-medium mt-3">{member.name}</p>

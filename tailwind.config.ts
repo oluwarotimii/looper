@@ -10,11 +10,12 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        xs: "600px", // Custom extra small breakpoint
+        xs: "0px", // Custom extra small breakpoint
+        smallPhone: "600px",
         sm: "900px", // Default small breakpoint
         md: "1150px", // Default medium breakpoint
-        // "smlg":"1280px",
         lg: "1458px", // Default large breakpoint
+
         xl: "1458px", // Default extra large breakpoint
         "2xl": "1536px", // Default 2xl breakpoint
       },

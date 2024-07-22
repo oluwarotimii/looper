@@ -5,6 +5,7 @@ import {
   Send,
   Shop,
 } from "iconsax-react";
+import Link from "next/link";
 import React from "react";
 
 export const Footer = () => {
@@ -89,14 +90,21 @@ export const Footer = () => {
         </div>
         <div className="lg:col-span-1   md:col-span-1 flex flex-col   lg:mt-0 lg:items-center">
           <div>
-          <p className="font-medium text-xs text-slate-300 mb-2">
-              Our Physical Store<span className="text-purple-600 text-sm">*</span>
+            <p className="font-medium text-xs text-slate-300 mb-2">
+              Our Physical Store
+              <span className="text-purple-600 text-sm">*</span>
             </p>
-            <Shop size="50" color="#FF8A65" />
-            <p className="flex">
-              {" "}
-              Coming Soon...
-            </p>
+            <div className="flex gap-1">
+              <Shop size="50" color="#FF8A65" />
+              <p className="flex mt-2 text-sm">
+                {" "}
+                <Link
+               target="_blank"
+                  href={
+                    "https://www.google.com/maps/dir/6.5241088,3.3554432/1+Ifa+Atai+Street,+Uyo/@5.9565055,4.3189548,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x105d57e9ef7f420b:0xa69b340b4adda150!2m2!1d7.938192!2d5.0262944?entry=ttu" }
+                >1 Ifa atai, big junction, Uyo,<br></br> Akwa ibom state</Link>
+              </p>
+            </div>
           </div>
         </div>
         <div className="lg:col-span-2   md:col-span-2 sm:col-span-4 sm:mt-2 flex flex-col">

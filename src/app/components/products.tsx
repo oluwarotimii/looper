@@ -61,11 +61,11 @@ export const Products = () => {
               animate={{ y: "0" }}
               transition={{ duration: 0.2 }}
               alt={"broiler"}
-              className="rounded-lg  lg:w-[600px] md:w-[400px] sm:w-[450px] xs:w-[450px] "
+              className="rounded-lg  lg:w-[600px] md:w-[400px] sm:w-[450px] xs:w-[90%] smallPhone:w-[80%]"
             />
           </div>
 
-          <div className="flex gap-1 lg:w-[600px] md:w-[400px] sm:w-[450px] mt-3 xs:w-[450px]">
+          <div className="flex gap-1 lg:w-[600px] md:w-[400px] sm:w-[450px] mt-3 xs:w-[90%] smallPhone:w-[80%]">
             {" "}
             <Image
               src={product1}

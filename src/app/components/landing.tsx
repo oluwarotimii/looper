@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowCircleDown, ArrowCircleRight } from "iconsax-react";
 import { Header } from "./header";
+import Link from "next/link";
 
 export const Landing = () => {
   return (
@@ -20,12 +21,15 @@ export const Landing = () => {
               key={index}
               className="font-bold text-slate-100 mb-3 overflow-hidden md:text-[70px] lg:text-[80px] md:h-[80px] lg:h-[90px] sm:text-[80px] xs:text-[3rem]"
               style={{ lineHeight: 1.1 }}
-              transition={{ duration: 1, delay: 0.3 , staggerChildren:0.4}}
+              transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
               {" "}
               <motion.span
                 initial={{ y: "100%" }}
-                whileInView={{ y: "0", transition: { duration: 0.3 , delay: 0.2 * index} }}
+                whileInView={{
+                  y: "0",
+                  transition: { duration: 0.3, delay: 0.2 * index },
+                }}
                 className="inline-block overflow-hidden"
               >
                 {s}
@@ -34,14 +38,18 @@ export const Landing = () => {
           ))}
 
           <p className=" text-xs font-sans  text-slate-300 break-words lg:w-[500px] md:w-[300px] leading-6 mt-4 sm:w-[400px]">
-            At La Davys Venture, our mission is to provide the highest quality of organically grown healthy and affordable poultry and agricultural products while practising sustainable farming methods.
+            At La Davys Venture, our mission is to provide the highest quality
+            of organically grown healthy and affordable poultry and agricultural
+            products while practising sustainable farming methods.
           </p>
 
-          <button className="text-slate-100 border p-3  rounded-[200px] mt-8  text-xs sm:w-[180px] hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center smallPhone:border-1">
+          <Link
+            href="tel:2347010576009"
+            className="text-slate-100 border p-3  rounded-[200px] mt-8  text-xs sm:w-[180px] hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center smallPhone:border-1"
+          >
             <p>contact us</p>{" "}
             <ArrowCircleRight size="22" className="text-green-600" />
-            
-          </button>
+          </Link>
         </div>
         <div className="flex place-items-end relative">
           <motion.div

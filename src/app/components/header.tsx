@@ -54,9 +54,12 @@ export const Header = () => {
         </div>
         <Logo />
         <div>
-          <p className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer">
+          <Link
+            href="tel:+2347010576009"
+            className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer"
+          >
             Contact Us
-          </p>
+          </Link>
         </div>
       </div>
 
@@ -73,9 +76,12 @@ export const Header = () => {
         />
         <Logo />
         <div>
-          <p className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer ">
+          <Link
+            href="tel:+2347010576009"
+            className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer"
+          >
             Contact Us
-          </p>
+          </Link>
         </div>
       </div>
       {isOpen && (

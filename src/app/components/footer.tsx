@@ -6,7 +6,8 @@ import {
   Shop,
 } from "iconsax-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export const Footer = () => {
   const routes = [
@@ -24,8 +25,67 @@ export const Footer = () => {
   ];
 
   const year = new Date().getFullYear();
+
+  interface IFormData {
+    email: string;
+    message: string;
+  }
+  interface IFormResponse {
+    status: "success" | "failure";
+    message: string;
+  }
+
+  interface FormError {
+    code: string;
+    message: string;
+  }
+
+  interface FormResponse {
+    error: string;
+    errors: FormError[];
+  }
+
+  const initialData: IFormData = { email: "", message: "" };
+  const [formData, setFormData] = useState<IFormData>(initialData);
+  const [responseMessage, setResponseMessage] = useState<null | IFormResponse>(
+    null
+  );
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("https://formspree.io/f/mjkbgyna", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setResponseMessage({
+          status: "success",
+          message: "Thank you for your message!",
+        });
+        setFormData(initialData);
+      } else {
+        setResponseMessage({
+          status: "failure",
+          message:
+            "Oops! There was a problem. Kindly crosscheck values entered",
+        });
+      }
+    } catch (error: any) {
+      setResponseMessage({
+        status: "failure",
+        message: (error as FormResponse)?.error,
+      });
+    }
+  };
+
   return (
-    <div>
+    <div className="xs:mt-10">
       <div className="bg-slate-900 px-10 py-5 pb-10 text-white justify-between pt-8 grid  lg:grid-cols-6  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
         <div className="lg:col-span-1 md:col-span-1">
           <img src="logo-2.png" className="w-[200px]  box-border" />
@@ -99,10 +159,13 @@ export const Footer = () => {
               <p className="flex mt-2 text-sm">
                 {" "}
                 <Link
-               target="_blank"
+                  target="_blank"
                   href={
-                    "https://www.google.com/maps/dir/6.5241088,3.3554432/1+Ifa+Atai+Street,+Uyo/@5.9565055,4.3189548,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x105d57e9ef7f420b:0xa69b340b4adda150!2m2!1d7.938192!2d5.0262944?entry=ttu" }
-                >1 Ifa atai, big junction, Uyo,<br></br> Akwa ibom state</Link>
+                    "https://www.google.com/maps/dir/6.5241088,3.3554432/1+Ifa+Atai+Street,+Uyo/@5.9565055,4.3189548,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x105d57e9ef7f420b:0xa69b340b4adda150!2m2!1d7.938192!2d5.0262944?entry=ttu"
+                  }
+                >
+                  1 Ifa atai, big junction, Uyo,<br></br> Akwa ibom state
+                </Link>
               </p>
             </div>
           </div>
@@ -113,13 +176,51 @@ export const Footer = () => {
             <span className="text-purple-600 text-sm">*</span>
           </p>
           <div className=" relative w-full box-border">
+            {responseMessage && (
+              <div
+                className={`${
+                  responseMessage?.status === "success"
+                    ? "bg-green-400"
+                    : "bg-red-400"
+                } text-white mb-2 rounded-md p-2 text-xs`}
+              >
+                {responseMessage.message}
+              </div>
+            )}
+            <input
+              placeholder="kindly provode your email address"
+              className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-10 min-w-full mb-2"
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target?.value })
+              }
+            />
             <textarea
               className=" p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-40 min-w-full"
               placeholder="hey, don't you want to say something..."
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target?.value })
+              }
             />
-            <button className="bg-green-700 mt-3 font-sm p-3 hover:scale-105 ease-in-out duration-500  rounded-full w-fit absolute -bottom-4 -right-4">
-              <Send />
-            </button>
+            <motion.button
+              className="bg-green-700 mt-3 font-sm p-3 hover:scale-105 ease-in-out duration-500  rounded-full w-fit absolute -bottom-4 -right-4 overflow-hidden"
+              onClick={handleSubmit}
+              whileHover={{
+                rotateZ: "320deg",
+                scale: 1.1,
+                transition: {
+                  type: "tween",
+                  stiffness: 200,
+                  damping: 10,
+                  duration: 0.1,
+                  // delay: 3,
+                  // staggerChildren: 5,
+                },
+              }}
+            >
+              <motion.div whileTap={{ y: -100, x: 200 }}>
+                <Send />
+              </motion.div>
+            </motion.button>
           </div>
         </div>
       </div>

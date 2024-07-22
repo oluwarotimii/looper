@@ -22,7 +22,7 @@ export const Cta = () => {
       <div
         className="h-[400px] flex justify-center items-center flex-col"
         style={{
-          backgroundImage: "url('/cta-bg.jpeg')",
+          backgroundImage: "url('/cta-bg.png')",
           backgroundSize: "cover",
         }}
       >

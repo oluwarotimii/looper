@@ -46,14 +46,14 @@ export const Products = () => {
       >
         <div>
           <p className="text-sm font-semibold text-purple-600">-Products</p>
-          <p className="lg:text-5xl md:text-2xl  sm:text-5xl sm:w-[350px] lg:w-[600px] md:w-[300px] xs:text-4xl xs:w-[250px] ">
+          <p className="lg:text-5xl md:text-2xl  sm:text-5xl sm:w-[350px] lg:w-[600px] md:w-[300px] xs:text-4xl xs:w-[90%] ">
             Only the freshest produce for our esteemed customers.{" "}
             <span className="text-purple-600 lg:text-6xl md:text-2xl">*</span>
           </p>
         </div>
 
         <div className="mt-3">
-          <div className="overflow-hidden">
+          <div className=" lg:w-[600px] md:w-[400px] sm:w-[450px] xs:hidden  smallPhone:block smallPhone:w-[80%]">
             {" "}
             <motion.img
               src={"/product-2.jpg"}
@@ -61,11 +61,11 @@ export const Products = () => {
               animate={{ y: "0" }}
               transition={{ duration: 0.2 }}
               alt={"broiler"}
-              className="rounded-lg  lg:w-[600px] md:w-[400px] sm:w-[450px] xs:w-[90%] smallPhone:w-[80%]"
+              className="rounded-lg "
             />
           </div>
 
-          <div className="flex gap-1 lg:w-[600px] md:w-[400px] sm:w-[450px] mt-3 xs:w-[90%] smallPhone:w-[80%]">
+          <div className="flex gap-1 lg:w-[600px] md:w-[400px] sm:w-[450px] mt-3  xs:hidden  smallPhone:flex smallPhone:w-[80%]">
             {" "}
             <Image
               src={product1}
@@ -114,7 +114,7 @@ export const Products = () => {
               }}
               src={product.image}
               alt={product.name}
-              className="absolute lg:-top-[90px] md:-top-16 smallPhone:-top-16 xs:-top-10 shadow-slate-400 md:w-[150px] lg:w-[200px] sm:w-[100px] xs:w-[100px]"
+              className="absolute lg:-top-[90px] md:-top-16 smallPhone:-top-16 xs:-top-12 shadow-slate-400 md:w-[150px] lg:w-[200px] sm:w-[100px] xs:w-[150px]"
             />
             <div className=" text-slate-800  box-border w-full  absolute top-[20%] h-[50%] rounded-b-3xl flex flex-col items-center p-3">
               <p className=" font-semibold  w-full mb-2 md:text-lg lg:text-xl">
@@ -125,7 +125,8 @@ export const Products = () => {
                 100% Organic
               </p>
               <p className="text-xs  font-light  w-full opacity-60">
-              &quotExperience the goodness of 100% naturally raised poultry and vegetables. Enjoy farm-fresh quality in every purchase!&quot
+                &quotExperience the goodness of 100% naturally raised poultry
+                and vegetables. Enjoy farm-fresh quality in every purchase!&quot
               </p>
               <motion.button
                 whileHover={{ scale: 1.1 }}

@@ -62,7 +62,7 @@ export const Team = () => {
           </p>
         </div>
 
-        <div className="mt-3 flex gap-1 lg:max-h-[50%] lg:h-[50dvh] md:h-[40vh] sm:h-[30vh] xs:h-[30vh] smallPhone:h-[40vh]">
+        <div className="mt-3 flex gap-1 lg:max-h-[50%] lg:h-[50dvh] md:h-[40vh] sm:h-[30vh] xs:h-[30vh] smallPhone:h-[40vh] xs:hidden smallPhone:flex">
           <div className="overflow-hidden box-border lg:w-[250px] md:w-[180px]  xs:w-full  lg:h-full md:h-full  sm:h-full  smallPhone:h-full xs:h-full   rounded-lg">
             <motion.img
               src={"/team-2.jpg"}

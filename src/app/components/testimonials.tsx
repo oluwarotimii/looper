@@ -47,6 +47,7 @@ export const Testimonials = () => {
           User feedback
         </p>
       </div>
+      
       <Carousel
         slides={data.map((c, i) => (
           <motion.div

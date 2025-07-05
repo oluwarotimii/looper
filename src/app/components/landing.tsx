@@ -1,26 +1,19 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowCircleDown, ArrowCircleRight } from "iconsax-react";
-import { Header } from "./header";
-import Link from "next/link";
+import {
+  ArrowRight
+} from "iconsax-react";
 
 export const Landing = () => {
   return (
-    <div
-      className="h-dvh w-dvw relative  "
-      style={{
-        backgroundImage: "url('/farm-bg-2.jpg')",
-        backgroundSize: "cover",
-      }}
-    >
-      <Header />
-      <div className="bg-zinc-900 bg-opacity-90 box-border h-[100%] w-[100%] flex items-center justify-center  lg:flex-row md:flex-row sm:flex-col xs:flex-col gap-10 p-10 ">
-        <div className="relative ">
-          {["Farm - Fresh", "Produce,", "Everyday."].map((s, index) => (
+    <div className="h-dvh w-dvw   ">
+      <div className="bg-black box-border h-[100%] w-[100%] flex items-center justify-center  lg:flex-row md:flex-row sm:flex-col xs:flex-col">
+        <div className=" w-full box-border pl-10 xs:p-10 mt-0 xs:mt-40">
+          <div className="w-fit text-justify">
+            {" "}
             <motion.p
-              key={index}
-              className="font-bold text-slate-100 mb-3 overflow-hidden md:text-[70px] lg:text-[80px] md:h-[80px] lg:h-[90px] sm:text-[80px] xs:text-[3rem]"
-              style={{ lineHeight: 1.1 }}
+              className=" text-slate-100 m-0 p-0 overflow-hidden text-[1.5rem]  gap-4  xs:w-full flex  justify-between"
+              style={{ lineHeight: 0.75, padding: 0, margin: 0 }}
               transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
               {" "}
@@ -28,108 +21,75 @@ export const Landing = () => {
                 initial={{ y: "100%" }}
                 whileInView={{
                   y: "0",
-                  transition: { duration: 0.3, delay: 0.2 * index },
+                  transition: { duration: 0.3, delay: 0.2 * 0 },
                 }}
                 className="inline-block overflow-hidden"
               >
-                {s}
+                S<span className="scale-x-125">E</span>LL
+              </motion.span>
+              <motion.span
+                initial={{ y: "100%" }}
+                whileInView={{
+                  y: "0",
+                  transition: { duration: 0.3, delay: 0.2 * 1 },
+                }}
+                className="inline-block overflow-hidden "
+              >
+                THE
               </motion.span>
             </motion.p>
-          ))}
-
-          <p className=" text-xs font-sans  text-slate-300 break-words lg:w-[500px] md:w-[300px] leading-6 mt-4 sm:w-[400px]">
-            At La Davys Venture, our mission is to provide the highest quality
-            of organically grown healthy and affordable poultry and agricultural
-            products while practising sustainable farming methods.
-          </p>
-
-          <Link
-            href="tel:2347010576009"
-            className="text-slate-100 border p-3  rounded-[200px] mt-8  text-xs sm:w-[180px] hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center smallPhone:border-1"
-          >
-            <p>contact us</p>{" "}
-            <ArrowCircleRight size="22" className="text-green-600" />
-          </Link>
-        </div>
-        <div className="flex place-items-end relative">
-          <motion.div
-            initial={{
-              scale: 0,
-              width: "0px",
-              height: "0px",
-              position: "inherit",
-            }}
-            animate={{
-              scale: 1,
-              height: "300px",
-              width: "300px",
-              position: "absolute",
-            }}
-            transition={{ duration: 0.4, delay: 0.2, staggerChildren: 0.8 }}
-            className=" animate-spin  z-10  lg:-top-[60px] lg:-right-[20px] sm:-right-[350px] sm:-top-[650px] md:hidden sm:block  xs:hidden smallPhone:hidden lg:block"
-          >
-            <motion.div
-              className="relative flex  items-center justify-center xs:hidden lg:flex"
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{ duration: 0.4, delay: 0.8 }}
+            <motion.p
+              className="text-slate-100 m-0 p-0 overflow-hidden md:text-[20rem] box-border xs:text-[10rem] w-full flex gap-2 font-ginger"
+              style={{ lineHeight: 0.8, padding: 0, margin: 0 }}
+              transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
-              {" "}
-              <p className="text-2xl absolute">🌼</p>{" "}
-              <svg viewBox="0 0 100 100">
-                <path
-                  fill="none"
-                  color="#fff"
-                  id="circlePath"
-                  d="M 30, 50 a 20,20 0 1,1 40,0 20,20 0 1,1 -40,0"
-                />
+              <motion.span
+                initial={{ y: "100%" }}
+                whileInView={{
+                  y: "0",
+                  transition: { duration: 0.3, delay: 0.2 * 2 },
+                }}
+                className="inline-block overflow-hidden text-orange-100"
+              >
+                SURPLUS
+              </motion.span>{" "}
+            </motion.p>
+          </div>
 
-                <text fill="white">
-                  <textPath href="#circlePath" fontSize={3.95} className="">
-                    quality farm fresh produce daily · quality farm fresh
-                    produce daily ·
-                  </textPath>
-                </text>
-              </svg>
-            </motion.div>
-          </motion.div>
-          <motion.img
-            initial={{
-              rotateZ: 0,
-              scale: 0.8,
-              objectFit: "cover",
-              borderRadius: "20px",
-              overflow: "hidden",
-            }}
+          {/* <p className="border-l-slate-500 p-0 pl-2 mb-1 border-l-2 text-xs font-sans font-semibold text-slate-500  break-words italic leading-6 mt-4 sm:w-[400px]">
+            Turn Surplus Food into Cash.&quot;
+          </p> */}
+          <motion.p
+            initial={{ y: "100%", opacity: 0 }}
             whileInView={{
-              rotateZ: 7,
-              transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 8,
-                duration: 0.8,
-                delay: 3,
-                staggerChildren: 5,
-              },
+              y: "0",
+              opacity: 1,
+              transition: { duration: 0.3, delay: 0.2 * 5 },
             }}
-            src={"/farmer-3.jpg"}
-            alt="farm"
-            className="h-[600px] md:h-[400px] lg:h-[600px] sm:hidden lg:block md:block xs:hidden"
-          />
+            className="mt-2 text-sm font-sans text-slate-300  break-words font-normal leading-6  sm:w-[400px]"
+          >
+            Sell extra groceries, restaurant leftovers, and more — reduce waste,
+            earn effortlessly.
+          </motion.p>
+          <motion.a
+            initial={{ scale: 0 }}
+            whileInView={{
+              scale: 1,
+              transition: { duration: 0.3, delay: 0.2 * 6 },
+            }}
+            href="tel:+2347010576009"
+            className=" bg-orange-400 w-[120px] text-black font-semibold p-2 rounded-[120px] mt-4 text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer whitespace-nowrap flex items-center justify-between gap-x-1"
+          >
+            <p>Get Started</p> <ArrowRight size={"14px"} />
+          </motion.a>
         </div>
-      </div>
-      <div className="flex justify-center items-center absolute bottom-9 w-full xs:hidden lg:flex">
-        <a
-          href="#product"
-          className="text-white text-xs w-fit border-green-500  sm:border-none border rounded-xl  bottom-8 font-medium px-3 py-2 animate-bounce flex items-center justify-center gap-2"
-        >
-          <p>scroll up</p>
-          <ArrowCircleDown size={15} color="#fff" />
-        </a>
+        <div
+          className="w-full h-full "
+          style={{
+            backgroundImage: "url('/vegetables-basket.jpg')",
+            backgroundSize: "cover",
+          }}
+        ></div>
       </div>
     </div>
   );

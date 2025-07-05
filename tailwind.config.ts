@@ -26,6 +26,7 @@ const config: Config = {
       },
       fontFamily: {
         playWrite: ["Playwrite USA Traditional", "hand-writing"],
+        ginger: ['GINGERBONE', 'sans-serif'],
       },
       keyframes: {
         spin: {
@@ -37,14 +38,14 @@ const config: Config = {
           "100%": { transform: "translateY(0px) " },
         },
         scroll: {
-          "0%": { transform: "translateX(-100px) " },
+          "0%": { transform: "translateX(-10%) " },
           "100%": { transform: "translateX(0%) " },
         },
       },
       animation: {
         spin: "spin 15s linear infinite",
         bounce: "bounce 1.4s  infinite",
-        scroll: "scroll 5s linear infinite",
+        scroll: "scroll 60s linear infinite",
       },
       invert: {
         100: "100%",

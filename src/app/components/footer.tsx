@@ -14,7 +14,6 @@ export const Footer = () => {
     { label: "product", link: "#product" },
     { label: "team", link: "#team" },
     { label: "shop", link: "" },
-    { label: "email us", link: "" },
   ];
 
   const contacts = [
@@ -85,23 +84,17 @@ export const Footer = () => {
   };
 
   return (
-    <div className="xs:mt-10">
+    <div className="">
       <div className="bg-slate-900 px-10 py-5 pb-10 text-white justify-between pt-8 grid  lg:grid-cols-6  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
         <div className="lg:col-span-1 md:col-span-1">
-          <img src="logo-2.png" className="w-[200px]  box-border" />
-
-          <p className="font-medium text-xs -mt-4">
-            farm-fresh produce, everyday.
-            <span className="text-purple-600 text-sm">*</span>
+          <p className="font-semibold text-xs mb-1">
+            Looper - <span className="font-light text-slate-300 italic text-orange-200">sell the surplus.&quot;</span>
           </p>
           <p className="font-light text-slate-300 text-xs mt-1">
-            At La Davy&apos;s Venture, we are passionate about bringing you the
-            freshest,
-            <br></br>
-            highest-quality produce straight from our fields to you
+          Sell extra groceries, restaurant leftovers, <br></br>and more — reduce waste, earn effortlessly.
           </p>
-          <button className="text-slate-100 p-2 rounded-[100px] mt-8 text-xs  bg-green-600 hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center">
-            <p>Join Our Whatsapp Group</p>{" "}
+          <button className="text-slate-100 p-2 rounded-[100px] mt-4 text-xs  bg-green-600 hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center">
+            <p>Join Our Whatsapp Community</p>{" "}
             <ArrowCircleRight2 size="22" className="text-inherit" />
           </button>
         </div>
@@ -154,9 +147,9 @@ export const Footer = () => {
               Our Physical Store
               <span className="text-purple-600 text-sm">*</span>
             </p>
-            <div className="flex gap-1">
-              <Shop size="50" color="#FF8A65" />
-              <p className="flex mt-2 text-sm">
+            <div className="flex gap-1 items-center">
+              <Shop size="20" color="#FF8A65" />
+              <p className="flex  text-xs">
                 {" "}
                 <Link
                   target="_blank"
@@ -164,13 +157,13 @@ export const Footer = () => {
                     "https://www.google.com/maps/dir/6.5241088,3.3554432/1+Ifa+Atai+Street,+Uyo/@5.9565055,4.3189548,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x105d57e9ef7f420b:0xa69b340b4adda150!2m2!1d7.938192!2d5.0262944?entry=ttu"
                   }
                 >
-                  1 Ifa atai, big junction, Uyo,<br></br> Akwa ibom state
+                 22 Akinwunmi, Maryland Lagos.
                 </Link>
               </p>
             </div>
           </div>
         </div>
-        <div className="lg:col-span-2   md:col-span-2 sm:col-span-4 sm:mt-2 flex flex-col">
+        {/* <div className="lg:col-span-2   md:col-span-2 sm:col-span-4 sm:mt-2 flex flex-col">
           <p className="font-medium text-xs text-slate-300 mb-2">
             Feedback
             <span className="text-purple-600 text-sm">*</span>
@@ -222,10 +215,10 @@ export const Footer = () => {
               </motion.div>
             </motion.button>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="bg-slate-950 text-slate-100 font-light p-4 text-center text-xs">
-        © la davy&apos;s venture, {year}
+        © looper , {year}
       </div>
     </div>
   );

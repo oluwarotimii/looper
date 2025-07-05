@@ -2,8 +2,7 @@
 import { motion } from "framer-motion";
 import { Facebook, HambergerMenu, Instagram } from "iconsax-react";
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
-import { Logo } from "./logo";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
@@ -24,8 +23,7 @@ export const Header = () => {
   }, []);
 
   const links = [
-    { label: "products", path: "#products" },
-    { label: "team", path: "#team" },
+    { label: "partner with looper", path: "#partner" },
     { label: "more", path: "#footer" },
   ];
 
@@ -38,27 +36,30 @@ export const Header = () => {
           scrollHeight && "bg-gray-950"
         } `}
       >
-        <div
-          className="flex gap-4"
-          style={{ lineHeight: "10px", height: "20px" }}
-        >
-          {links.map((link, i) => (
-            <Link
-              key={i}
-              href={link.path}
-              className="text-[10.5px] text-slate-100 uppercase hover:border-b-2 transition-all ease-in-out duration-400"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-        <Logo />
         <div>
+          <p className="text-white">Looper.</p>
+        </div>
+        <div className="flex items-center gap-4 justify-center">
+          <div className="flex gap-4" style={{ lineHeight: "10px" }}>
+            {links.map((link, i) => (
+              <Link
+                key={i}
+                href={link.path}
+                className={`text-[10.5px] ${
+                  scrollHeight ? "text-slate-100" : "text-slate-900"
+                }  uppercase hover:border-b-2 transition-all ease-in-out duration-400`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
           <Link
             href="tel:+2347010576009"
-            className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer"
+            className={` ${
+              !scrollHeight ? "text-slate-100" : "text-slate-900"
+            } bg-orange-400  p-2 rounded-[200px] text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer`}
           >
-            Contact Us
+            Get Started
           </Link>
         </div>
       </div>
@@ -69,20 +70,14 @@ export const Header = () => {
           scrollHeight && "bg-gray-950"
         } `}
       >
+        <p className="text-white">Looper.</p>
         <HambergerMenu
           onClick={() => setisOpen(true)}
           size="32"
-          className="text-green-600 hover:cursor-pointer"
+          className="text-orange-400 hover:cursor-pointer"
         />
-        <Logo />
-        <div>
-          <Link
-            href="tel:+2347010576009"
-            className=" bg-green-400 p-2 rounded-[200px] text-xs text-slate-900 hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer"
-          >
-            Contact Us
-          </Link>
-        </div>
+        {/* <Logo /> */}
+       
       </div>
       {isOpen && (
         <div

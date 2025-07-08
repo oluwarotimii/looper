@@ -1,19 +1,14 @@
 import {
-  ArrowCircleRight2,
   Facebook,
-  Instagram,
-  Send,
-  Shop,
+  Instagram
 } from "iconsax-react";
-import Link from "next/link";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
 export const Footer = () => {
   const routes = [
     { label: "product", link: "#product" },
     { label: "team", link: "#team" },
-    { label: "shop", link: "" },
+    // { label: "shop", link: "" },
   ];
 
   const contacts = [
@@ -85,21 +80,21 @@ export const Footer = () => {
 
   return (
     <div className="">
-      <div className="bg-slate-900 px-10 py-5 pb-10 text-white justify-between pt-8 grid  lg:grid-cols-6  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
-        <div className="lg:col-span-1 md:col-span-1">
+      <div className="bg-slate-900 px-10 py-5 pb-10 text-white justify-between pt-8 grid  lg:grid-cols-10  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
+        <div className="lg:col-span-8 md:col-span-1">
           <p className="font-semibold text-xs mb-1">
             Looper - <span className="font-light text-slate-300 italic text-orange-200">loop the surplus.&quot;</span>
           </p>
           <p className="font-light text-slate-300 text-xs mt-1">
           Sell extra groceries, restaurant leftovers, <br></br>and more — reduce waste, earn effortlessly.
           </p>
-          <button className="text-slate-100 p-2 rounded-[100px] mt-4 text-xs  bg-green-600 hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center">
+          {/* <button className="text-slate-100 p-2 rounded-[100px] mt-4 text-xs  bg-green-600 hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center">
             <p>Join Our Whatsapp Community</p>{" "}
             <ArrowCircleRight2 size="22" className="text-inherit" />
-          </button>
+          </button> */}
         </div>
 
-        <div className="lg:col-span-1 sm:items-end  md:col-span-1 flex flex-col">
+        <div className="lg:col-span-1   md:col-span-1 flex flex-col sm:items-end">
           <div className="flex flex-col items-start mb-4">
             <p className="font-medium text-xs text-slate-300">
               Quick Links
@@ -121,7 +116,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-1 flex flex-col  md:col-span-1 sm:items-center">
+        <div className="lg:col-span-1 flex flex-col  md:col-span-1 sm:items-end">
           <div className="flex flex-col items-start mb-4">
             <p className="font-medium text-xs text-slate-300">
               Contact Us
@@ -141,7 +136,7 @@ export const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="lg:col-span-1   md:col-span-1 flex flex-col   lg:mt-0 lg:items-center">
+        {/* <div className="lg:col-span-1   md:col-span-1 flex flex-col   lg:mt-0 lg:items-center">
           <div>
             <p className="font-medium text-xs text-slate-300 mb-2">
               Our Physical Store
@@ -162,7 +157,7 @@ export const Footer = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* <div className="lg:col-span-2   md:col-span-2 sm:col-span-4 sm:mt-2 flex flex-col">
           <p className="font-medium text-xs text-slate-300 mb-2">
             Feedback

@@ -6,7 +6,7 @@ import {
 
 export const Landing = () => {
   return (
-    <div className="h-dvh w-dvw   ">
+    <div className="h-dvh w-full  box-border ">
       <div className="bg-black box-border h-[100%] w-[100%] flex items-center justify-center  lg:flex-row md:flex-row sm:flex-col xs:flex-col">
         <div className=" w-full xs:min-h-[70dvh] box-border pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
           <div className="w-fit text-justify">

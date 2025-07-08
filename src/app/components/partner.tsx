@@ -36,10 +36,22 @@ export const PartnerWithUs = () => {
     null
   );
 
+  const [isLoading, setLoading] = useState(false);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
+      // Validate form data
+      for (const key in formData) {
+        if (!formData[key as keyof IFormData] && key !== "email") {
+          setResponseMessage({
+            status: "failure",
+            message: `kindly provide your ${key.replace("_", " ")}`,
+          });
+          return;
+        }
+      }
       const response = await fetch("https://formspree.io/f/mjkbgyna", {
         method: "POST",
         headers: {
@@ -66,6 +78,8 @@ export const PartnerWithUs = () => {
         status: "failure",
         message: (error as FormResponse)?.error,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -180,7 +194,7 @@ export const PartnerWithUs = () => {
               onHoverStart={() => setIsHovered(true)}
               onHoverEnd={() => setIsHovered(false)}
             >
-              Submit to partner
+              {isLoading ? "...loading" : "Submit"}
               <motion.div
                 animate={
                   isHovered

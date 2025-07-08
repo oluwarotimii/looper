@@ -38,7 +38,7 @@ export default function Carousel({ slides }: CarouselProps) {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
 
   return (
-    <div className="w-full pb-20  mx-auto relative overflow-hidden">
+    <div className="w-full pb-20 box-border mx-auto relative overflow-hidden">
       <div
         className="flex transition-transform duration-500 w-full gap-1"
         style={{ transform: `translateX(-${current * 100}%)` }}

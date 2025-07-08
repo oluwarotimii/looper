@@ -88,7 +88,7 @@ export const Footer = () => {
       <div className="bg-slate-900 px-10 py-5 pb-10 text-white justify-between pt-8 grid  lg:grid-cols-6  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
         <div className="lg:col-span-1 md:col-span-1">
           <p className="font-semibold text-xs mb-1">
-            Looper - <span className="font-light text-slate-300 italic text-orange-200">sell the surplus.&quot;</span>
+            Looper - <span className="font-light text-slate-300 italic text-orange-200">loop the surplus.&quot;</span>
           </p>
           <p className="font-light text-slate-300 text-xs mt-1">
           Sell extra groceries, restaurant leftovers, <br></br>and more — reduce waste, earn effortlessly.
@@ -154,7 +154,7 @@ export const Footer = () => {
                 <Link
                   target="_blank"
                   href={
-                    "https://www.google.com/maps/dir/6.5241088,3.3554432/1+Ifa+Atai+Street,+Uyo/@5.9565055,4.3189548,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x105d57e9ef7f420b:0xa69b340b4adda150!2m2!1d7.938192!2d5.0262944?entry=ttu"
+                    "https://www.google.com/maps/place/22+Akinwunmi+Street,+Maryland,+Lagos+105102,+Lagos/@6.571814,3.3774089,17z/data=!4m15!1m8!3m7!1s0x103b927e705c67f3:0x51e82437ac39417e!2s22+Akinwunmi+Street,+Maryland,+Lagos+105102,+Lagos!3b1!8m2!3d6.571814!4d3.3774089!16s%2Fg%2F11spr3byr2!3m5!1s0x103b927e705c67f3:0x51e82437ac39417e!8m2!3d6.571814!4d3.3774089!16s%2Fg%2F11spr3byr2?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
                   }
                 >
                  22 Akinwunmi, Maryland Lagos.
@@ -218,7 +218,7 @@ export const Footer = () => {
         </div> */}
       </div>
       <div className="bg-slate-950 text-slate-100 font-light p-4 text-center text-xs">
-        © looper , {year}
+        © Looper , {year}
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ export const HowItWorks = () => {
     {
       value: "Enjoy & Share",
       img: "./closeup-businessman-using-laptop-lunch-break.jpg",
-      decr: "Enjoy & Share your food rescue experience",
+      decr: "Enjoy & Share your food Loop experience",
     },
   ];
   return (
@@ -36,15 +36,15 @@ export const HowItWorks = () => {
             .map((i) => (
               <p
                 key={i}
-                className=" font-ginger border-orange-400 text-gray-600 mb-8 text-center text-[18rem] font-light whitespace-nowrap"
+                className=" font-ginger border-orange-400 text-gray-600 mb-8 text-center md:text-[18rem]  xs:text-[5rem] font-light whitespace-nowrap"
                 style={{ lineHeight: 1 }}
               >
-                How does looper Work?
+                How does Looper work?
               </p>
             ))}
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-2 p-10">
+      <div className="grid sm:grid-cols-4 xs:grid-cols-1 gap-2 p-10">
         {" "}
         {data.map((c, i) => (
           <motion.div

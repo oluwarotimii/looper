@@ -73,18 +73,18 @@ export const PartnerWithUs = () => {
 
   return (
     <div
-      className="w-full  bg-black  mt-0 grid grid-cols-2 items-center justify-center gap-8"
+      className="w-full  bg-black  mt-0 grid sm:grid-cols-2 xs:grid-cols-1 xs:p-10 items-center justify-center gap-8"
       id="partner"
     >
       <img
         src="./female-shopkeeper-smiling-camera.jpg"
         alt="partner"
-        className="w-auto h-dvh object-fill object-center box-border"
+        className="w-auto sm:h-dvh  xs:h-auto object-fill object-center box-border xs:rounded-lg"
       />
 
       <div className="sm:mt-2 flex flex-col box-border">
         <p
-          className="font-ginger text-[8rem] text-orange-400 p-0 m-0 text-left"
+          className="font-ginger sm:text-[8rem] xs:text-[5rem] text-orange-400 p-0 m-0 text-left"
           style={{ lineHeight: 0.75 }}
         >
           Partner With Looper
@@ -100,7 +100,7 @@ export const PartnerWithUs = () => {
           Sell fast on looper, connect your surplus/discounted items to
           customers<br></br> You will be contacted within 24hrs of submitting
         </p>
-        <div className=" relative  box-border w-[550px]">
+        <div className=" relative  box-border sm:w-[550px] xs:w-full">
           {responseMessage && (
             <div
               className={`${

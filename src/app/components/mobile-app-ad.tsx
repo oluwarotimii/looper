@@ -5,13 +5,13 @@ export const MobileAppAd = () => {
   return (
     <div className="w-full">
       {" "}
-      <div className="grid  bg-black grid-cols-2 items-center justify-between gap-24 py-20 relative overflow-hidden">
+      <div className="grid  bg-black sm:grid-cols-2 xs:grid-cols-1 items-center justify-between gap-24 py-20 relative overflow-hidden">
         <div className="flex flex-col items-center justify-center  gap-4 w-full box-border text-center">
           <p className="bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-semibold">
             coming soon ✨
           </p>
           <p
-            className="font-ginger text-[20rem] text-white p-0 m-0 "
+            className="font-ginger sm:text-[20rem] xs:text-[10rem] text-white p-0 m-0 "
             style={{ lineHeight: 0.75 }}
           >
             Join Our <br />
@@ -46,7 +46,7 @@ export const MobileAppAd = () => {
           }}
           src="./closeup-hand-holding-blank-screen-smartphone-plain-background.png"
           alt="mobile app ad"
-          className="h-full box-border w-full object-cover absolute bottom-0"
+          className="h-full box-border w-full object-cover absolute bottom-0 xs:hidden md:block"
         />
       </div>
       <div className="flex items-center justify-center overflow-hidden  gap-16 w-full box-border">
@@ -58,7 +58,7 @@ export const MobileAppAd = () => {
             .map((i) => (
               <p
                 key={i}
-                className=" font-ginger border-orange-400 text-gray-600 mb-8 text-center text-[8rem] font-light whitespace-nowrap"
+                className=" font-ginger border-orange-400 text-gray-600 mb-8  xs:mb-2 text-center sm:text-[8rem] xs:text-[3rem] font-light whitespace-nowrap"
                 style={{ lineHeight: 1 }}
               >
                 Join Our waitlist <span className="text-green-400">* </span>

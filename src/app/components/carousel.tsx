@@ -1,6 +1,6 @@
 // Carousel.tsx
 import { ArrowLeft, ArrowRight } from "iconsax-react";
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useEffect } from "react";
 
 interface CarouselProps {
   slides: ReactNode[]; // Accept any JSX elements
@@ -8,10 +8,29 @@ interface CarouselProps {
 
 export default function Carousel({ slides }: CarouselProps) {
   const [current, setCurrent] = useState(0);
+  const [slideMaxLength, setSlideMaxLength] = useState(0);
+
+  useEffect(() => {
+    if (!slides || !slides.length) return;
+
+    const updateSlideMaxLength = () => {
+      const width = window.innerWidth;
+      if (width < 800) {
+        setSlideMaxLength(Math.floor(slides.length - 1));
+      } else {
+        setSlideMaxLength(Math.floor(slides.length / 2)); // Example logic
+      }
+    };
+
+    updateSlideMaxLength();
+    window.addEventListener("resize", updateSlideMaxLength);
+
+    return () => {
+      window.removeEventListener("resize", updateSlideMaxLength);
+    };
+  }, [slides]);
 
   if (!slides.length) return null;
-
-  const slideMaxLength = Math.floor(slides.length / 2); // Assuming each slide is a pair of items
 
   const prevSlide = () =>
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -33,7 +52,7 @@ export default function Carousel({ slides }: CarouselProps) {
       {slideMaxLength !== current + 1 && (
         <button
           onClick={nextSlide}
-          className="absolute z-50 bg-white rounded-full p-2 shadow right-10 top-[50%] hover:bg-gray-200 transition"
+          className="absolute z-20 bg-white rounded-full p-2 shadow right-10 top-[30%] hover:bg-gray-200 transition"
         >
           <ArrowRight size="24" color="#000" />
         </button>
@@ -42,7 +61,7 @@ export default function Carousel({ slides }: CarouselProps) {
       {current > 0 && (
         <button
           onClick={prevSlide}
-          className="absolute z-50 bg-white rounded-full p-2 shadow -left-10 top-[50%] hover:bg-gray-200 transition"
+          className="absolute z-20 bg-white rounded-full p-2 shadow -left-10 top-[30%] hover:bg-gray-200 transition"
         >
           <ArrowLeft size="24" color="#000" />
         </button>

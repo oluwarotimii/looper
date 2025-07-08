@@ -8,12 +8,12 @@ export const Landing = () => {
   return (
     <div className="h-dvh w-dvw   ">
       <div className="bg-black box-border h-[100%] w-[100%] flex items-center justify-center  lg:flex-row md:flex-row sm:flex-col xs:flex-col">
-        <div className=" w-full box-border pl-10 xs:p-10 mt-0 xs:mt-40">
+        <div className=" w-full xs:min-h-[70dvh] box-border pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
           <div className="w-fit text-justify">
             {" "}
             <motion.p
               className=" text-slate-100 m-0 p-0 overflow-hidden text-[1.5rem]  gap-4  xs:w-full flex  justify-between"
-              style={{ lineHeight: 0.75, padding: 0, margin: 0 }}
+              style={{ lineHeight: 1, padding: 0, margin: 0 }}
               transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
               {" "}
@@ -25,7 +25,7 @@ export const Landing = () => {
                 }}
                 className="inline-block overflow-hidden"
               >
-                S<span className="scale-x-125">E</span>LL
+               Loop
               </motion.span>
               <motion.span
                 initial={{ y: "100%" }}
@@ -39,7 +39,7 @@ export const Landing = () => {
               </motion.span>
             </motion.p>
             <motion.p
-              className="text-slate-100 m-0 p-0 overflow-hidden md:text-[20rem] box-border xs:text-[10rem] w-full flex gap-2 font-ginger"
+              className="text-slate-100 m-0 p-0 overflow-hidden md:text-[20rem] box-border xs:text-[15rem] w-full flex gap-2 font-ginger"
               style={{ lineHeight: 0.8, padding: 0, margin: 0 }}
               transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
@@ -66,7 +66,7 @@ export const Landing = () => {
               opacity: 1,
               transition: { duration: 0.3, delay: 0.2 * 5 },
             }}
-            className="mt-2 text-sm font-sans text-slate-300  break-words font-normal leading-6  sm:w-[400px]"
+            className="mt-2 text-sm font-sans text-slate-300  break-words font-normal leading-6  sm:w-[400px] text-left xs:text-center"
           >
             Sell extra groceries, restaurant leftovers, and more — reduce waste,
             earn effortlessly.
@@ -77,17 +77,17 @@ export const Landing = () => {
               scale: 1,
               transition: { duration: 0.3, delay: 0.2 * 6 },
             }}
-            href="tel:+2347010576009"
+            href="#partner"
             className=" bg-orange-400 w-[120px] text-black font-semibold p-2 rounded-[120px] mt-4 text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer whitespace-nowrap flex items-center justify-between gap-x-1"
           >
             <p>Get Started</p> <ArrowRight size={"14px"} />
           </motion.a>
         </div>
         <div
-          className="w-full h-full "
+          className="w-full h-full xs:bg-no-repeat bg-cover  xs:bg-center"
           style={{
             backgroundImage: "url('/vegetables-basket.jpg')",
-            backgroundSize: "cover",
+            // backgroundSize: "cover",
           }}
         ></div>
       </div>

@@ -24,7 +24,7 @@ export const Header = () => {
 
   const links = [
     { label: "partner with looper", path: "#partner" },
-    { label: "more", path: "#footer" },
+    // { label: "more", path: "#footer" },
   ];
 
   const [isOpen, setisOpen] = useState(false);
@@ -32,7 +32,7 @@ export const Header = () => {
   return (
     <div>
       <div
-        className={`fixed p-5 flex w-dvw justify-between  xs:hidden sm:flex  max-h-[90px] z-20 ${
+        className={`fixed p-5 flex w-dvw justify-between  xs:hidden sm:flex  max-h-[90px] z-50 ${
           scrollHeight && "bg-gray-950"
         } `}
       >
@@ -54,7 +54,7 @@ export const Header = () => {
             ))}
           </div>
           <Link
-            href="tel:+2347010576009"
+            href="#partner"
             className={` ${
               !scrollHeight ? "text-slate-100" : "text-slate-900"
             } bg-orange-400  p-2 rounded-[200px] text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer`}

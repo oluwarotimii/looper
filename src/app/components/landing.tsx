@@ -1,13 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-  ArrowRight
-} from "iconsax-react";
+import { ArrowRight } from "iconsax-react";
 
 export const Landing = () => {
   return (
-    <div className="h-dvh w-full  box-border ">
-      <div className="bg-black box-border h-[100%] w-[100%] flex items-center justify-center  lg:flex-row md:flex-row sm:flex-col xs:flex-col">
+    <div className="h-dvh sm:w-full  box-border ">
+      <div className="bg-orange-600 box-border h-[100%] sm:w-[100%] flex items-center justify-center  lg:flex-row md:flex-row sm:flex-col xs:flex-col">
         <div className=" w-full xs:min-h-[70dvh] box-border pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
           <div className="w-fit text-justify">
             {" "}
@@ -25,7 +23,7 @@ export const Landing = () => {
                 }}
                 className="inline-block overflow-hidden"
               >
-               Loop
+                Loop
               </motion.span>
               <motion.span
                 initial={{ y: "100%" }}
@@ -66,7 +64,7 @@ export const Landing = () => {
               opacity: 1,
               transition: { duration: 0.3, delay: 0.2 * 5 },
             }}
-            className="mt-2 text-sm font-sans text-slate-300  break-words font-normal leading-6  sm:w-[400px] text-left xs:text-center"
+            className="mt-2 text-sm font-sans text-slate-100  break-words font-light leading-6  sm:w-[400px] text-left xs:text-center"
           >
             Sell extra groceries, restaurant leftovers, and more — reduce waste,
             earn effortlessly.
@@ -78,9 +76,9 @@ export const Landing = () => {
               transition: { duration: 0.3, delay: 0.2 * 6 },
             }}
             href="#partner"
-            className=" bg-orange-400 w-[120px] text-black font-semibold p-2 rounded-[120px] mt-4 text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer whitespace-nowrap flex items-center justify-between gap-x-1"
+            className=" bg-[#009832] text-white font-semibold p-2 rounded-[120px] mt-4 text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer whitespace-nowrap flex items-center justify-between gap-x-1"
           >
-            <p>Get Started</p> <ArrowRight size={"14px"} />
+            <p>Get Started</p>
           </motion.a>
         </div>
         <div

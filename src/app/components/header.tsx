@@ -37,7 +37,12 @@ export const Header = () => {
         } `}
       >
         <div>
-          <p className="text-white">Looper.</p>
+          {/* <p className="text-white">Looper.</p> */}
+          <img
+            src={scrollHeight ? "./logo.svg" : "./logo-black.svg"}
+            alt="logo"
+            className=" w-[100px]"
+          />
         </div>
         <div className="flex items-center gap-4 justify-center">
           <div className="flex gap-4" style={{ lineHeight: "10px" }}>
@@ -77,7 +82,6 @@ export const Header = () => {
           className="text-orange-400 hover:cursor-pointer"
         />
         {/* <Logo /> */}
-       
       </div>
       {isOpen && (
         <div
@@ -102,7 +106,7 @@ export const Header = () => {
             </div>
             <div className=" pb-5 flex items-center justify-center flex-col  gap-6">
               {" "}
-              <img src="/logo-2.png" alt="logo" className="invert w-[300px]" />
+              <img src="./logo.svg" alt="logo" className="invert w-[300px]" />
               <hr className="border border-slate-300 w-full border-dashed"></hr>
               <p className="text-[1rem] text-gray-300 font-semibold">MENU</p>
               {links.map((link, index) => (

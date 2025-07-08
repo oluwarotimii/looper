@@ -52,7 +52,7 @@ export default function Carousel({ slides }: CarouselProps) {
       {slideMaxLength !== current + 1 && (
         <button
           onClick={nextSlide}
-          className="absolute z-20 bg-white rounded-full p-2 shadow right-10 top-[30%] hover:bg-gray-200 transition"
+          className="absolute z-20 bg-white rounded-full p-2 shadow right-10 sm:top-[30%] xs:top-[50%] hover:bg-gray-200 transition"
         >
           <ArrowRight size="24" color="#000" />
         </button>

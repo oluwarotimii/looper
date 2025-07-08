@@ -57,7 +57,7 @@ export const Testimonials = () => {
             //   opacity: "1",
             //   transition: { duration: 0.6, delay: 0.4 },
             // }}
-            className=" rounded-xl bg-white border-gray-200 sm:w-[560px] xs:w-80 h-full items-center justify-between gap-4 overflow-hidden"
+            className=" rounded-xl bg-white border-gray-200 sm:w-[560px] xs:w-full h-full items-center justify-between gap-4 overflow-hidden"
           >
             <div className="p-4">
               <img

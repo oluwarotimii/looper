@@ -87,13 +87,13 @@ export const PartnerWithUs = () => {
 
   return (
     <div
-      className="w-full  bg-black  mt-0 grid sm:grid-cols-2 xs:grid-cols-1 xs:p-10 items-center justify-center gap-8"
+      className="w-full bg-black  mt-0 grid sm:grid-cols-2 xs:grid-cols-1 xs:p-10 items-center justify-center gap-8"
       id="partner"
     >
       <img
         src="./female-shopkeeper-smiling-camera.jpg"
         alt="partner"
-        className="w-auto sm:h-dvh  xs:h-auto object-fill object-center box-border xs:rounded-lg"
+        className="w-auto sm:h-dvh xs:w-full xs:object-cover xs:object-right-top xs:h-[400px] object-fill object-center box-border xs:rounded-lg"
       />
 
       <div className="sm:mt-2 flex flex-col box-border">

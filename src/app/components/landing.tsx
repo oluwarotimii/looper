@@ -35,7 +35,7 @@ export const Landing = () => {
                 }}
                 className="inline-block overflow-hidden "
               >
-                THE
+                the
               </motion.span>
             </motion.p>
             <motion.p

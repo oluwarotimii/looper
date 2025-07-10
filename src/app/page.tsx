@@ -1,41 +1,34 @@
-"use client";
-import Head from "next/head";
-import { Footer } from "./components/footer";
-import { Header } from "./components/header";
-import { HowItWorks } from "./components/howitworks";
-import { Impact } from "./components/impact";
-import { Landing } from "./components/landing";
-import { PartnerWithUs } from "./components/partner";
-import { Testimonials } from "./components/testimonials";
+import { HomePage } from "./components/home";
+
+const url = process.env.NEXT_PUBLIC_SITE_URL || "https://uselooper.vercel.app";
+export const metadata = {
+  title: "Looper | Rescue Surplus Food and Save Money",
+  description:
+    "Looper helps you rescue surplus food from restaurants, stores, and more — reducing waste while saving money.",
+  openGraph: {
+    title: "Looper | Rescue Surplus Food and Save Money",
+    description:
+      "Discover affordable, quality food from local restaurants and stores. Reduce food waste and support sustainability.",
+    url,
+    type: "website",
+    images: [
+      {
+        url: `${url}/vegetables-basket.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Basket of vegetables",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Looper | Rescue Surplus Food and Save Money",
+    description:
+      "Discover affordable, quality food from local restaurants and stores. Reduce food waste and support sustainability.",
+    images: [`${url}/vegetables-basket.jpg`],
+  },
+};
 
 export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>Looper | Rescue Surplus Food and Save Money</title>
-        <meta name="description" content="Looper helps you rescue surplus food from restaurants, stores, and more — reducing waste while saving money." />
-        
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Looper | Rescue Surplus Food and Save Money" />
-        <meta property="og:description" content="Discover affordable, quality food from local restaurants and stores. Reduce food waste and support sustainability." />
-        <meta property="og:image" content="./vegetables-basket.jpg" />
-        <meta property="og:url" content="./vegetables-basket.jpg" />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Looper | Rescue Surplus Food and Save Money" />
-        <meta name="twitter:description" content="Discover affordable, quality food from local restaurants and stores. Reduce food waste and support sustainability." />
-        <meta name="twitter:image" content="./vegetables-basket.jpg" />
-      </Head>
-
-      <Header />
-      <Landing />
-      <Impact />
-      <HowItWorks />
-      <Testimonials />
-      <PartnerWithUs />
-      <Footer />
-    </div>
-  );
+  return <HomePage />;
 }

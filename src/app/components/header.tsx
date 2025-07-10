@@ -75,11 +75,18 @@ export const Header = () => {
           scrollHeight && "bg-gray-950"
         } `}
       >
-        <p className="text-white">Looper.</p>
+        <p className="text-white py-2">
+          {" "}
+          <img
+            src={scrollHeight ? "./logo.svg" : "./logo-black.svg"}
+            alt="logo"
+            className=" w-[60px]"
+          />
+        </p>
         <HambergerMenu
           onClick={() => setisOpen(true)}
           size="32"
-          className="text-orange-400 hover:cursor-pointer"
+          className="text-orange-200 hover:cursor-pointer"
         />
         {/* <Logo /> */}
       </div>
@@ -106,7 +113,7 @@ export const Header = () => {
             </div>
             <div className=" pb-5 flex items-center justify-center flex-col  gap-6">
               {" "}
-              <img src="./logo.svg" alt="logo" className="invert w-[300px]" />
+              <img src="./logo.svg" alt="logo" className=" w-[100px]" />
               <hr className="border border-slate-300 w-full border-dashed"></hr>
               <p className="text-[1rem] text-gray-300 font-semibold">MENU</p>
               {links.map((link, index) => (

@@ -8,7 +8,7 @@ export const Testimonials = () => {
       name: "Mr. Emeka",
       img: "./top-view-table-full-delicious-food-assortment.jpg",
       comment:
-        "With Looper, I no longer worry about leftover meals. What used to be waste now brings in extra revenue — and my customers love the transparency.",
+        "Before Looper, my end-of-day surplus was a 100% loss. Now, it's a new, revenue stream. It has turned a problem into a small profit center",
       persona: "Restaurant Owner, Ikeja",
     },
     {

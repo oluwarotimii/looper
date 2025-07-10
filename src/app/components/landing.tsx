@@ -18,7 +18,7 @@ export const Landing = () => {
     {
       title: "Eat the",
       img: "./display-image.jpg",
-      color: "bg-red-700",
+      color: "bg-[#18181b]",
       description:
         "Get in the loop to reduce waste – enjoy tasty meals from your favourite spots at unbelievable discount and our pockets",
     },
@@ -129,8 +129,8 @@ export const Landing = () => {
                     setCurrent(index);
                     setElapsed(0);
                   }}
-                  className={`h-3 w-3 rounded-full transition-all bg-gray-300 bg-opacity-35 ${
-                    current === index ? "bg-opacity-100" : ""
+                  className={`h-3 w-3 rounded-full transition-all bg-gray-300  ${
+                    current === index ? "bg-opacity-100" : "bg-opacity-35"
                   }`}
                   style={
                     current === index

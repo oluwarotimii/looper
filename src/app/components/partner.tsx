@@ -108,10 +108,10 @@ export const PartnerWithUs = () => {
           style={{ lineHeight: 1.7 }}
         >
           <span className="font-bold text-white">
-            Tired of losing money on surplus products?
+            Don&apos;t lose your surplus, Loop it!
           </span>{" "}
           <br></br>
-          Sell fast on looper, connect your surplus/discounted items to
+          Sell fast on Looper, connect your surplus/discounted items to
           customers<br></br> You will be contacted within 24hrs of submitting
         </p>
         <div className=" relative  box-border sm:w-[550px] xs:w-full">
@@ -187,9 +187,9 @@ export const PartnerWithUs = () => {
               />
             </div>
           </div>
-          <div className="flex w-full justify-end">
+          <div className="flex flex-col w-full justify-end gap-5">
             <motion.button
-              className="bg-green-700  flex gap-2 items-center justify-center text-white mt-3 font-sm p-3 rounded-xl w-full overflow-hidden hover:scale-105 ease-in-out duration-500 cursor-pointer"
+              className="bg-green-700 col-span-3 flex gap-2 items-center justify-center text-white mt-3 font-sm p-3 rounded-xl w-full overflow-hidden hover:scale-105 ease-in-out duration-500 cursor-pointer"
               onClick={handleSubmit}
               onHoverStart={() => setIsHovered(true)}
               onHoverEnd={() => setIsHovered(false)}
@@ -206,6 +206,13 @@ export const PartnerWithUs = () => {
                 <Send />
               </motion.div>
             </motion.button>
+            <p className="text-white text-center">- or -</p>
+            <motion.a
+              className="bg-orange-500 col-span-1  flex gap-2 items-center justify-center text-white  font-sm p-3 rounded-xl w-full overflow-hidden hover:scale-105 ease-in-out duration-500 cursor-pointer"
+              href="tel:+2340000000000"
+            >
+              Call Us 234(0)000 0000 000{" "}
+            </motion.a>
           </div>
         </div>
       </div>

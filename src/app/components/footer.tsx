@@ -1,7 +1,4 @@
-import {
-  Facebook,
-  Instagram
-} from "iconsax-react";
+import { Facebook, Instagram } from "iconsax-react";
 import { useState } from "react";
 
 export const Footer = () => {
@@ -24,69 +21,24 @@ export const Footer = () => {
     email: string;
     message: string;
   }
-  interface IFormResponse {
-    status: "success" | "failure";
-    message: string;
-  }
 
-  interface FormError {
-    code: string;
-    message: string;
-  }
-
-  interface FormResponse {
-    error: string;
-    errors: FormError[];
-  }
 
   const initialData: IFormData = { email: "", message: "" };
   const [formData, setFormData] = useState<IFormData>(initialData);
-  const [responseMessage, setResponseMessage] = useState<null | IFormResponse>(
-    null
-  );
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("https://formspree.io/f/mjkbgyna", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setResponseMessage({
-          status: "success",
-          message: "Thank you for your message!",
-        });
-        setFormData(initialData);
-      } else {
-        setResponseMessage({
-          status: "failure",
-          message:
-            "Oops! There was a problem. Kindly crosscheck values entered",
-        });
-      }
-    } catch (error: any) {
-      setResponseMessage({
-        status: "failure",
-        message: (error as FormResponse)?.error,
-      });
-    }
-  };
 
   return (
     <div className="">
       <div className="bg-slate-900 px-10 py-5 pb-10 text-white justify-between pt-8 grid  lg:grid-cols-10  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
         <div className="lg:col-span-8 md:col-span-1">
           <p className="font-semibold text-xs mb-1">
-            Looper - <span className="font-light text-slate-300 italic text-orange-200">loop the surplus.&quot;</span>
+            Looper -{" "}
+            <span className="font-light text-slate-300 italic text-orange-200">
+              loop the surplus.&quot;
+            </span>
           </p>
           <p className="font-light text-slate-300 text-xs mt-1">
-          Sell extra groceries, restaurant leftovers, <br></br>and more — reduce waste, earn effortlessly.
+            Sell extra groceries, restaurant leftovers, <br></br>and more —
+            reduce waste, earn effortlessly.
           </p>
           {/* <button className="text-slate-100 p-2 rounded-[100px] mt-4 text-xs  bg-green-600 hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center">
             <p>Join Our Whatsapp Community</p>{" "}

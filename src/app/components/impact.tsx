@@ -10,14 +10,14 @@ export const Impact = () => {
       decr: " Meals Looped this month",
     },
     {
-      value: "80+",
+      value: "35+",
       icon: <ArrowRight size={18} />,
       decr: "Partner Businesses across Lagos",
     },
     {
-      value: "5,000+",
+      value: "₦5M+",
       icon: <ArrowRight size={18} />,
-      decr: "App Downloads, and growing",
+      decr: "Partner revenue",
     },
   ];
   return (

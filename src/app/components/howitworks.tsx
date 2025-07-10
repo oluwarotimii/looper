@@ -29,7 +29,7 @@ export const HowItWorks = () => {
     <div className="w-full bg-orange-50 box-border  mt-0 items-center justify-center gap-24">
       <div className="flex items-center justify-center overflow-hidden  gap-16 w-full box-border">
         {" "}
-        <div className="animate-scroll flex gap-24">
+        {/* <div className="animate-scroll flex gap-24">
           {" "}
           {Array(50)
             .fill("")
@@ -42,7 +42,13 @@ export const HowItWorks = () => {
                 How does Looper work?
               </p>
             ))}
-        </div>
+        </div> */}
+        <p
+          className=" font-ginger border-orange-400 text-gray-600 mb-8 text-center md:text-[18rem]  xs:text-[5rem] font-light whitespace-nowrap"
+          style={{ lineHeight: 1 }}
+        >
+          How does Looper work?
+        </p>
       </div>
       <div className="grid sm:grid-cols-4 xs:grid-cols-1 gap-2 p-10">
         {" "}

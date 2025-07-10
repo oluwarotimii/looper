@@ -1,93 +1,146 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight } from "iconsax-react";
+import { useEffect, useState } from "react";
 
 export const Landing = () => {
+  const [slideMaxLength] = useState(2);
+  const [current, setCurrent] = useState(0);
+  const [elapsed, setElapsed] = useState(0);
+
+  const data = [
+    {
+      title: "Loop the",
+      img: "./vegetables-basket.jpg",
+      color: "bg-orange-600",
+      description:
+        "Sell extra food, restaurant surpluses and more — reduce waste, earn effortlessly.",
+    },
+    {
+      title: "Eat the",
+      img: "./display-image.jpg",
+      color: "bg-red-700",
+      description:
+        "Get in the loop to reduce waste – enjoy tasty meals from your favourite spots at unbelievable discount and our pockets",
+    },
+  ];
+
+  // Change slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slideMaxLength);
+      setElapsed(0);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slideMaxLength]);
+
+  // Update elapsed time
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setElapsed((prev) => Math.min(prev + 1, 5));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="h-dvh sm:w-full  box-border ">
-      <div className="bg-orange-600 box-border h-[100%] sm:w-[100%] flex items-center justify-center  lg:flex-row md:flex-row sm:flex-col xs:flex-col">
-        <div className=" w-full xs:min-h-[70dvh] box-border pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
+    <div className="h-dvh sm:w-full relative">
+      <div
+        className={`h-full sm:w-full flex items-center justify-center flex-col lg:flex-row md:flex-row xs:flex-col ${
+          data[current]?.color
+        }`}
+      >
+        <div className="w-full xs:min-h-[70dvh] pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
           <div className="w-fit text-justify">
-            {" "}
             <motion.p
-              className=" text-slate-100 m-0 p-0 overflow-hidden text-[1.5rem]  gap-4  xs:w-full flex  justify-between"
-              style={{ lineHeight: 1, padding: 0, margin: 0 }}
+              key={`title-${current}`}
+              className="text-white text-[3rem] font-bold text-center gap-4 xs:w-full flex justify-center"
               transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
-              {" "}
               <motion.span
-                initial={{ y: "100%" }}
-                whileInView={{
-                  y: "0",
-                  transition: { duration: 0.3, delay: 0.2 * 0 },
-                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
                 className="inline-block overflow-hidden"
               >
-                Loop
-              </motion.span>
-              <motion.span
-                initial={{ y: "100%" }}
-                whileInView={{
-                  y: "0",
-                  transition: { duration: 0.3, delay: 0.2 * 1 },
-                }}
-                className="inline-block overflow-hidden "
-              >
-                the
+                {data[current]?.title}
               </motion.span>
             </motion.p>
+
             <motion.p
-              className="text-slate-100 m-0 p-0 overflow-hidden md:text-[20rem] box-border xs:text-[15rem] w-full flex gap-2 font-ginger"
-              style={{ lineHeight: 0.8, padding: 0, margin: 0 }}
+              key={`surplus-${current}`}
+              className="text-slate-100 md:text-[20rem] xs:text-[15rem] w-full flex gap-2 font-ginger"
+              style={{ lineHeight: 0.8 }}
               transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
               <motion.span
-                initial={{ y: "100%" }}
-                whileInView={{
-                  y: "0",
-                  transition: { duration: 0.3, delay: 0.2 * 2 },
-                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.4 }}
                 className="inline-block overflow-hidden text-orange-100"
               >
                 SURPLUS
-              </motion.span>{" "}
+              </motion.span>
             </motion.p>
           </div>
 
-          {/* <p className="border-l-slate-500 p-0 pl-2 mb-1 border-l-2 text-xs font-sans font-semibold text-slate-500  break-words italic leading-6 mt-4 sm:w-[400px]">
-            Turn Surplus Food into Cash.&quot;
-          </p> */}
           <motion.p
+            key={`desc-${current}`}
             initial={{ y: "100%", opacity: 0 }}
-            whileInView={{
-              y: "0",
-              opacity: 1,
-              transition: { duration: 0.3, delay: 0.2 * 5 },
-            }}
-            className="mt-2 text-sm font-sans text-slate-100  break-words font-light leading-6  sm:w-[400px] text-left xs:text-center"
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 0.3, delay: 1 }}
+            className="mt-2 text-sm font-sans text-slate-100 font-light leading-6 sm:w-[400px] text-left xs:text-center"
           >
-            Sell extra groceries, restaurant leftovers, and more — reduce waste,
-            earn effortlessly.
+            {data[current]?.description}
           </motion.p>
-          <motion.a
-            initial={{ scale: 0 }}
-            whileInView={{
-              scale: 1,
-              transition: { duration: 0.3, delay: 0.2 * 6 },
-            }}
-            href="#partner"
-            className=" bg-[#009832] text-white font-semibold p-2 rounded-[120px] mt-4 text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer whitespace-nowrap flex items-center justify-between gap-x-1"
-          >
-            <p>Get Started</p>
-          </motion.a>
+
+          {current === 0 && (
+            <motion.a
+              key={`cta-${current}`}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3, delay: 1.2 }}
+              href="#partner"
+              className="bg-[#009832] text-white font-semibold p-5 rounded-[120px] mt-4 text-lg hover:p-6 transition-all ease-in-out duration-500 cursor-pointer whitespace-nowrap flex items-center justify-between gap-x-1"
+            >
+              <p>Get Started</p>
+            </motion.a>
+          )}
         </div>
+
         <div
-          className="w-full h-full xs:bg-no-repeat bg-cover  xs:bg-center"
+          className="w-full h-full xs:bg-no-repeat bg-cover xs:bg-center"
           style={{
-            backgroundImage: "url('/vegetables-basket.jpg')",
-            // backgroundSize: "cover",
+            backgroundImage: `url('${data[current]?.img}')`,
           }}
         ></div>
+      </div>
+
+      <div className="absolute bottom-7 w-full flex pl-10 justify-start items-center gap-4">
+        <div className="flex gap-2">
+          {Array(slideMaxLength)
+            .fill("")
+            .map((_, index) => {
+              const progress = current === index ? Math.min(elapsed / 5, 1) : 0;
+              const padding = 16 * progress;
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setCurrent(index);
+                    setElapsed(0);
+                  }}
+                  className={`h-3 w-3 rounded-full transition-all bg-gray-300 bg-opacity-35 ${
+                    current === index ? "bg-opacity-100" : ""
+                  }`}
+                  style={
+                    current === index
+                      ? { paddingLeft: padding, paddingRight: padding }
+                      : { paddingLeft: 0, paddingRight: 0 }
+                  }
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

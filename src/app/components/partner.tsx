@@ -52,7 +52,7 @@ export const PartnerWithUs = () => {
           return;
         }
       }
-      const response = await fetch("https://formspree.io/f/mjkbgyna", {
+      const response = await fetch("https://formspree.io/f/mzzgnzyl", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

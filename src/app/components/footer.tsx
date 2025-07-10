@@ -3,16 +3,13 @@ import { useState } from "react";
 
 export const Footer = () => {
   const routes = [
-    { label: "product", link: "#product" },
-    { label: "team", link: "#team" },
-    // { label: "shop", link: "" },
+    { label: "About us", link: "#about-us" },
+    { label: "Partner", link: "#partner" },
   ];
 
   const contacts = [
-    { label: "Instagram", link: "#product", icon: <Instagram size={18} /> },
-    { label: "facebook", link: "#team", icon: <Facebook size={18} /> },
-    // { label: "shop", link: "" },
-    // { label: "email us", link: "" },
+    { label: "Instagram", link: "#", icon: <Instagram size={18} /> },
+    { label: "facebook", link: "#", icon: <Facebook size={18} /> },
   ];
 
   const year = new Date().getFullYear();
@@ -22,28 +19,21 @@ export const Footer = () => {
     message: string;
   }
 
-
   const initialData: IFormData = { email: "", message: "" };
   const [formData, setFormData] = useState<IFormData>(initialData);
 
   return (
     <div className="">
-      <div className="bg-slate-900 px-10 py-5 pb-10 text-white justify-between pt-8 grid  lg:grid-cols-10  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
+      <div className="bg-slate-900 px-10 py-5 pb-5 text-white justify-between pt-8 grid  lg:grid-cols-10  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
         <div className="lg:col-span-8 md:col-span-1">
-          <p className="font-semibold text-xs mb-1">
-            Looper -{" "}
-            <span className="font-light text-slate-300 italic text-orange-200">
-              loop the surplus.&quot;
+          <img src="./logo-black.svg" alt="logo" className=" w-[60px]" />
+          <p className="font-semibold text-xs " style={{ lineHeight: "1.5" }}>
+            <span className=" text-slate-300 text-xs  font-normal mt-1">
+              Sell extra groceries, restaurant leftovers, <br></br>and more —
+              reduce waste, earn effortlessly.
             </span>
           </p>
-          <p className="font-light text-slate-300 text-xs mt-1">
-            Sell extra groceries, restaurant leftovers, <br></br>and more —
-            reduce waste, earn effortlessly.
-          </p>
-          {/* <button className="text-slate-100 p-2 rounded-[100px] mt-4 text-xs  bg-green-600 hover:bg-white hover:text-slate-900 transition-all ease-in-out duration-700 flex gap-2 items-center justify-center">
-            <p>Join Our Whatsapp Community</p>{" "}
-            <ArrowCircleRight2 size="22" className="text-inherit" />
-          </button> */}
+          <br />
         </div>
 
         <div className="lg:col-span-1   md:col-span-1 flex flex-col sm:items-end">

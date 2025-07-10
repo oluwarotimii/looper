@@ -23,6 +23,7 @@ export const Header = () => {
   }, []);
 
   const links = [
+    { label: "about us", path: "#about-us" },
     { label: "partner with looper", path: "#partner" },
     // { label: "more", path: "#footer" },
   ];

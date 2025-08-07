@@ -1,5 +1,6 @@
 
 import "./globals.css";
+import "./fonts.css";
 
 
 export default function RootLayout({
@@ -10,15 +11,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
+          rel="preload"
+          href="/fonts/GINGERBONE.ttf"
+          as="font"
+          type="font/ttf"
           crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playwrite+US+Trad:wght@100..400&display=swap"
-          rel="stylesheet"
         />
       </head>
       <body >{children}</body>

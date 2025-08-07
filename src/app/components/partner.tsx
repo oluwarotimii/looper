@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Send } from "iconsax-react";
 import { useState } from "react";
 
+import Image from "next/image";
+
 export const PartnerWithUs = () => {
   interface IFormData {
     email: string;
@@ -90,11 +92,17 @@ export const PartnerWithUs = () => {
       className="w-full bg-black  mt-0 grid sm:grid-cols-2 xs:grid-cols-1 xs:p-10 items-center justify-center gap-8"
       id="partner"
     >
-      <img
-        src="./female-shopkeeper-smiling-camera.jpg"
-        alt="partner"
-        className="w-auto sm:h-dvh xs:w-full xs:object-cover xs:object-right-top xs:h-[400px] object-fill object-center box-border xs:rounded-lg"
-      />
+      <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-dvh">
+        <Image
+          src="/female-shopkeeper-smiling-camera.jpg"
+          alt="partner"
+          quality={75}
+          priority
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover object-right-top rounded-lg"
+        />
+      </div>
 
       <div className="sm:mt-2 flex flex-col box-border">
         <p

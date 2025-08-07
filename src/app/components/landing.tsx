@@ -48,7 +48,7 @@ export const Landing = () => {
           data[current]?.color
         }`}
       >
-        <div className="w-full xs:min-h-[70dvh] pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
+        <div className="w-full md:w-1/2 xs:min-h-[70dvh] pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
           <div className="w-fit text-justify">
             <motion.p
               key={`title-${current}`}
@@ -107,7 +107,7 @@ export const Landing = () => {
         </div>
 
         <div
-          className="w-full h-full xs:bg-no-repeat bg-cover xs:bg-center"
+          className="w-1/2 h-full xs:bg-no-repeat bg-cover xs:bg-center hidden md:block"
           style={{
             backgroundImage: `url('${data[current]?.img}')`,
           }}

@@ -60,6 +60,7 @@ export const Testimonials = () => {
               alt={c.name}
               width={50}
               height={50}
+              quality={50}
               className="object-cover rounded-full mb-4"
             />
             <p className="text-base text-gray-600 text-center mb-4">{`"${c.comment}"`}</p>

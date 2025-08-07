@@ -1,6 +1,6 @@
 // Carousel.tsx
 import { ArrowLeft, ArrowRight } from "iconsax-react";
-import { useState, ReactNode, useEffect } from "react";
+import { useState, ReactNode } from "react";
 
 interface CarouselProps {
   slides: ReactNode[]; // Accept any JSX elements
@@ -8,27 +8,6 @@ interface CarouselProps {
 
 export default function Carousel({ slides }: CarouselProps) {
   const [current, setCurrent] = useState(0);
-  const [slideMaxLength, setSlideMaxLength] = useState(0);
-
-  useEffect(() => {
-    if (!slides || !slides.length) return;
-
-    const updateSlideMaxLength = () => {
-      const width = window.innerWidth;
-      if (width < 800) {
-        setSlideMaxLength(Math.floor(slides.length - 1));
-      } else {
-        setSlideMaxLength(Math.floor(slides.length / 2)); // Example logic
-      }
-    };
-
-    updateSlideMaxLength();
-    window.addEventListener("resize", updateSlideMaxLength);
-
-    return () => {
-      window.removeEventListener("resize", updateSlideMaxLength);
-    };
-  }, [slides]);
 
   if (!slides.length) return null;
 
@@ -44,33 +23,29 @@ export default function Carousel({ slides }: CarouselProps) {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div key={index} className="w-fit shrink-0">
+          <div key={index} className="w-full shrink-0">
             {slide}
           </div>
         ))}
       </div>
-      {slideMaxLength !== current + 1 && (
-        <button
-          onClick={nextSlide}
-          className=" absolute z-20 bg-white rounded-full p-2 shadow right-10 sm:top-[30%] xs:top-[50%] hover:bg-gray-200 transition"
-        >
-          <ArrowRight size="24" color="#000" />
-        </button>
-      )}
+      <button
+        onClick={nextSlide}
+        className=" absolute z-20 bg-white rounded-full p-2 shadow right-10 sm:top-[30%] xs:top-[50%] hover:bg-gray-200 transition"
+      >
+        <ArrowRight size="24" color="#000" />
+      </button>
 
-      {current > 0 && (
-        <button
-          onClick={prevSlide}
-          className="absolute z-20 bg-white rounded-full p-2 shadow -left-10 top-[30%] hover:bg-gray-200 transition"
-        >
-          <ArrowLeft size="24" color="#000" />
-        </button>
-      )}
+      <button
+        onClick={prevSlide}
+        className="absolute z-20 bg-white rounded-full p-2 shadow -left-10 top-[30%] hover:bg-gray-200 transition"
+      >
+        <ArrowLeft size="24" color="#000" />
+      </button>
 
       {/* Controls */}
       <div className="absolute bottom-7 w-full flex justify-center items-center gap-4">
         <div className="flex gap-2">
-          {Array(slideMaxLength)
+          {Array(slides.length)
             .fill("")
             .map((_, index) => (
               <button

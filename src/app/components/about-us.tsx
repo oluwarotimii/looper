@@ -1,25 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import olympusDigitalCamera from "../../../public/olympus-digital-camera.jpg";
 
 export const Aboutus = () => {
   return (
     <div
-      className="p-10 h-auto bg-orange-50 text-black flex justify-center"
+      className="p-5 md:p-10 h-auto bg-orange-50 text-black flex justify-center items-center"
       id="about-us"
     >
-      <div className="grid grid-cols-2 gap-5 justify-center max-w-4xl ">
-        <div className="col-span-1">
-          <img
-            src="./olympus-digital-camera.jpg"
+      <div className="flex flex-col md:flex-row gap-8 md:gap-10 max-w-6xl w-full">
+        <div className="w-full md:w-1/2 flex justify-center items-center">
+          <Image
+            src={olympusDigitalCamera}
             alt="about us"
-            className="rounded-xl -rotate-[2deg] sm:block xs:hidden "
+            className="rounded-xl -rotate-[2deg] w-full h-auto object-cover"
+            priority
           />
         </div>
 
-        <div className=" sm:col-span-1 xs:col-span-2">
+        <div className="w-full md:w-1/2 flex flex-col justify-center">
           <motion.p
-            className="font-ginger sm:text-[8rem] xs:text-[5rem] text-gray-800 p-0 mb-5 text-left"
+            className="font-ginger text-6xl md:text-8xl text-gray-800 mb-5 text-center md:text-left"
             style={{ lineHeight: 0.75 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -27,7 +30,7 @@ export const Aboutus = () => {
           >
             About Us
           </motion.p>
-          <p className="text-sm col-span-2 ">
+          <p className="text-sm md:text-base leading-relaxed text-center md:text-left">
             We are Looper! Nigeria&apos;s first surplus food platform Looper was born
             from a simple but powerful observation: at the end of every day, so
             much delicious, fresh food is lost. <br />

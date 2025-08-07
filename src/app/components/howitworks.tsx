@@ -1,57 +1,43 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight } from "iconsax-react";
+import Image from "next/image";
+
+import browseImage from "../../../public/top-view-table-full-delicious-food-assortment.jpg";
+import orderPayImage from "../../../public/bio-food-market-woman-stand.jpg";
+import pickUpImage from "../../../public/front-view-man-delivering-groceries.jpg";
+import enjoyShareImage from "../../../public/closeup-businessman-using-laptop-lunch-break.jpg";
 
 export const HowItWorks = () => {
   const data = [
     {
       value: "Browse",
-      img: "./top-view-table-full-delicious-food-assortment.jpg",
+      img: browseImage,
       decr: "Browse nearby surplus meals in real-time",
     },
     {
       value: "Order & Pay",
-      img: "./bio-food-market-woman-stand.jpg",
+      img: orderPayImage,
       decr: "Order & Pay securely via Paystack",
     },
     {
       value: "Pick Up",
-      img: "./front-view-man-delivering-groceries.jpg",
+      img: pickUpImage,
       decr: "Pick Up at your convenience or choose delivery",
     },
     {
       value: "Enjoy & Share",
-      img: "./closeup-businessman-using-laptop-lunch-break.jpg",
+      img: enjoyShareImage,
       decr: "Enjoy & Share your food Loop experience",
     },
   ];
   return (
-    <div className="w-full bg-orange-50 box-border  mt-0 items-center justify-center gap-24">
-      <div className="flex items-center justify-center overflow-hidden  gap-16 w-full box-border">
-        {" "}
-        {/* <div className="animate-scroll flex gap-24">
-          {" "}
-          {Array(50)
-            .fill("")
-            .map((i) => (
-              <p
-                key={i}
-                className=" font-ginger border-orange-400 text-gray-600 mb-8 text-center md:text-[18rem]  xs:text-[5rem] font-light whitespace-nowrap"
-                style={{ lineHeight: 1 }}
-              >
-                How does Looper work?
-              </p>
-            ))}
-        </div> */}
-        <p
-          className=" font-ginger border-orange-400 text-gray-600 mb-8 text-center md:text-[18rem]  xs:text-[5rem] font-light whitespace-nowrap"
-          style={{ lineHeight: 1 }}
-        >
-          How does Looper work?
-        </p>
-      </div>
-      <div className="grid sm:grid-cols-4 xs:grid-cols-1 gap-2 p-10">
-        {" "}
+    <div className="w-full bg-orange-50 py-10 px-5 md:px-10 flex flex-col items-center justify-center">
+      <h2
+        className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight"
+      >
+        How does Looper work?
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-5 md:p-10 w-full max-w-7xl">
         {data.map((c, i) => (
           <motion.div
             key={i}
@@ -59,23 +45,22 @@ export const HowItWorks = () => {
             whileInView={{
               y: "0",
               opacity: "1",
-              transition: { duration: 0.6, delay: 0.4 * i },
+              transition: { duration: 0.6, delay: 0.2 * i },
             }}
-            className=" rounded-xl bg-white border-gray-200 w-full  items-center justify-between gap-4 overflow-hidden"
+            className="rounded-xl bg-white border border-gray-200 w-full overflow-hidden shadow-lg"
           >
-            {" "}
-            <img
+            <Image
               src={c?.img}
               alt={c.value}
-              className="h-40 object-cover w-full"
+              className="h-48 object-cover w-full"
+              priority
             />
-            <div className="p-4">
-              {" "}
-              <p className="p-4  bg-orange-100  w-10 h-10 flex justify-center items-center font-mono text-orange-400 font-bold rounded-full">
+            <div className="p-6">
+              <p className="p-3 bg-orange-100 text-orange-400 font-bold rounded-full inline-flex items-center justify-center text-lg mb-4">
                 {i + 1}
               </p>
-              <p className="text-2xl text-orange-400 font-bold">{c.value}</p>
-              <p className="text-sm text-gray-600">{c.decr}</p>
+              <h3 className="text-2xl text-orange-400 font-bold mb-2">{c.value}</h3>
+              <p className="text-base text-gray-600">{c.decr}</p>
             </div>
           </motion.div>
         ))}
@@ -83,3 +68,4 @@ export const HowItWorks = () => {
     </div>
   );
 };
+

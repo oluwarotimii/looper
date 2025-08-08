@@ -19,7 +19,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body class="overflow-x-hidden" >{children}</body>
+      <body className="overflow-x-hidden" >{children}</body>
     </html>
   );
 }

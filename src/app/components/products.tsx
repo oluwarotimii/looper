@@ -27,9 +27,8 @@ export const Products = () => {
   useEffect(() => {
     if (window != undefined) {
       setscreenWidth(window.innerWidth);
-      console.log(screenWidth);
     }
-  }, []);
+  }, [screenWidth]);
 
   return (
     <div

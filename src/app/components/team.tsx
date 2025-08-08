@@ -44,9 +44,8 @@ export const Team = () => {
   useEffect(() => {
     if (window != undefined) {
       setscreenWidth(window.innerWidth);
-      console.log(screenWidth);
     }
-  }, []);
+  }, [screenWidth]);
   return (
     <div
       className="pb-80 flex items-start lg:p-40 md:p-20 sm:p-10  gap-10 w-dvw xs:p-10 xs:flex-col sm:flex-row"

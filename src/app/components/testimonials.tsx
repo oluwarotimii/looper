@@ -18,15 +18,8 @@ export const Testimonials = () => {
       name: "Aisha Hassan",
       img: testimonialImage,
       comment:
-        "With Looper, I no longer worry about leftover meals. What used to be waste now brings in extra revenue — and my customers love the transparency.",
-      persona: "Student (Yaba tech) & Profesional Foodie",
-    },
-    {
-      name: "Jide Samuel",
-      img: testimonialImage,
-      comment:
-        "I schedule my lunch pickups through Looper — no queues, no stress. It saves me time and money every week.",
-      persona: "Banker - Providus Bank",
+        "With Looper, I no longer worry about leftover pastries. What used to be waste now brings in extra revenue — and my customers love the transparency.",
+      persona: "Bakery owner",
     },
     {
       name: "Jide Samuel",

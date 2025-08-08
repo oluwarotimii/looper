@@ -31,8 +31,8 @@ export const Aboutus = () => {
             About Us
           </motion.p>
           <p className="text-sm md:text-base leading-relaxed text-center md:text-left">
-            We are Looper! Nigeria&apos;s first surplus food platform Looper was born
-            from a simple but powerful observation: at the end of every day, so
+            We are Looper! Nigeria&apos;s first surplus food platform. <br />
+            Looper was born from a simple but powerful observation: at the end of every day, so
             much delicious, fresh food is lost. <br />
             That didn&apos;t sit right with us; so, we decided to do something about
             it.
@@ -42,7 +42,7 @@ export const Aboutus = () => {
             We&apos;re not just another food company; we&apos;re here to provide amazing
             food at the best prices.
             <br />
-            <br /> Our mission is to make sustainability feel easy and familiar,
+            <br /> Our mission is to make sustainability feel easy and relatable,
             help people access good food at low prices and support local
             businesses.
             <br /> Our success isn&apos;t measured in profit but in the strength of

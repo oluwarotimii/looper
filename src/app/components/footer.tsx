@@ -1,4 +1,4 @@
-import { Facebook, Instagram } from "iconsax-react";
+import { Facebook, Instagram,CallIncoming } from "iconsax-react";
 import { useState } from "react";
 
 export const Footer = () => {
@@ -10,6 +10,7 @@ export const Footer = () => {
   const contacts = [
     { label: "Instagram", link: "#", icon: <Instagram size={18} /> },
     { label: "facebook", link: "#", icon: <Facebook size={18} /> },
+    { label: "+2348136197158", link: "tel:+2348136197158", icon: <CallIncoming size={18} /> },
   ];
 
   const year = new Date().getFullYear();
@@ -29,7 +30,7 @@ export const Footer = () => {
           <img src="./logo-black.svg" alt="logo" className=" w-[60px]" />
           <p className="font-semibold text-xs " style={{ lineHeight: "1.5" }}>
             <span className=" text-slate-300 text-xs  font-normal mt-1">
-              Sell extra groceries, restaurant leftovers, <br></br>and more —
+              Sell extra groceries, extras, <br></br>and more —
               reduce waste, earn effortlessly.
             </span>
           </p>

@@ -75,16 +75,19 @@ export const HowItWorks = () => {
                 opacity: "1",
                 transition: { duration: 0.6, delay: 0.2 * i },
               }}
-              className="rounded-xl bg-white border border-gray-200 w-full overflow-hidden shadow-lg"
+              className="rounded-xl bg-white border border-gray-200 w-full overflow-hidden shadow-lg flex flex-col md:flex-row"
             >
-              <Image
-                src={c?.img}
-                alt={c.value}
-                className="h-48 object-cover w-full"
-                priority
-              />
-              <div className="p-6">
-                <p className="p-3 bg-orange-100 text-orange-400 font-bold rounded-full inline-flex items-center justify-center text-lg mb-4">
+              <div className="md:w-2/5 w-full">
+                <Image
+                  src={c?.img}
+                  alt={c.value}
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: '4/3' }}
+                  priority
+                />
+              </div>
+              <div className="p-6 md:w-3/5 w-full flex flex-col justify-center">
+                <p className="p-3 bg-orange-100 text-orange-400 font-bold rounded-full inline-flex items-center justify-center text-lg mb-4 w-fit">
                   {i + 1}
                 </p>
                 <h3 className="text-2xl text-orange-400 font-bold mb-2">{c.value}</h3>
@@ -111,16 +114,19 @@ export const HowItWorks = () => {
                 opacity: "1",
                 transition: { duration: 0.6, delay: 0.2 * i },
               }}
-              className="rounded-xl bg-orange-50 border border-gray-200 w-full overflow-hidden shadow-lg"
+              className="rounded-xl bg-orange-50 border border-gray-200 w-full overflow-hidden shadow-lg flex flex-col md:flex-row"
             >
-              <Image
-                src={c?.img}
-                alt={c.value}
-                className="h-48 object-cover w-full"
-                priority
-              />
-              <div className="p-6">
-                <p className="p-3 bg-orange-100 text-orange-400 font-bold rounded-full inline-flex items-center justify-center text-lg mb-4">
+              <div className="md:w-2/5 w-full">
+                <Image
+                  src={c?.img}
+                  alt={c.value}
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: '4/3' }}
+                  priority
+                />
+              </div>
+              <div className="p-6 md:w-3/5 w-full flex flex-col justify-center">
+                <p className="p-3 bg-orange-100 text-orange-400 font-bold rounded-full inline-flex items-center justify-center text-lg mb-4 w-fit">
                   {i + 1}
                 </p>
                 <h3 className="text-2xl text-orange-400 font-bold mb-2">{c.value}</h3>

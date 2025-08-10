@@ -49,7 +49,7 @@ export const Landing = () => {
         }`}
       >
         <div className="w-full md:w-1/2 xs:min-h-[70dvh] pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
-          <div className="w-fit text-justify">
+          <div className="w-fit text-justify overflow-hidden">
             <motion.p
               key={`title-${current}`}
               className="text-white text-[3rem] font-bold text-center gap-4 xs:w-full flex justify-center"

@@ -52,7 +52,7 @@ export const Landing = () => {
           <div className="w-fit text-justify overflow-hidden">
             <motion.p
               key={`title-${current}`}
-              className="text-white text-[3rem] font-bold text-center gap-4 xs:w-full flex justify-center"
+              className="text-white text-[3rem] text-center gap-4 xs:w-full flex justify-center font-ginger"
               transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
             >
               <motion.span

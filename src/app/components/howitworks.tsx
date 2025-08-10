@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import browseImage from "../../../public/top-view-table-full-delicious-food-assortment.jpg";
+import enjoyImage from "../../../public/display-image.jpg"
 import orderPayImage from "../../../public/bio-food-market-woman-stand.jpg";
 import pickUpImage from "../../../public/front-view-man-delivering-groceries.jpg";
 import partnerJoinImage from "../../../public/registration.jpg";
@@ -29,7 +30,7 @@ export const HowItWorks = () => {
     },
     {
       value: "Enjoy & Share",
-      img: browseImage,
+      img: enjoyImage,
       decr: "Enjoy & Share your food Loop experience",
     },
   ];

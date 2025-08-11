@@ -171,7 +171,7 @@ export const PartnerWithUs = () => {
               </label>
               <input
                 id="phone_number"
-                placeholder="e.g +23400000000"
+                placeholder="e.g +2348136197158"
                 className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-10  mb-2"
                 value={formData.phone_number}
                 onChange={(e) =>
@@ -217,9 +217,9 @@ export const PartnerWithUs = () => {
             <p className="text-white text-center">- or -</p>
             <motion.a
               className="bg-orange-500 col-span-1  flex gap-2 items-center justify-center text-white  font-sm p-3 rounded-xl w-full overflow-hidden hover:scale-105 ease-in-out duration-500 cursor-pointer"
-              href="tel:+2340000000000"
+              href="tel: +2348136197158"
             >
-              Call Us 234(0)000 0000 000{" "}
+              Call Us 234(0)8136197158{" "}
             </motion.a>
           </div>
         </div>

@@ -2,6 +2,25 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6 },
+  },
+};
+
 import browseImage from "../../../public/top-view-table-full-delicious-food-assortment.jpg";
 import enjoyImage from "../../../public/display-image.jpg"
 import orderPayImage from "../../../public/bio-food-market-woman-stand.jpg";
@@ -66,16 +85,17 @@ export const HowItWorks = () => {
         >
           How Looper works?
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-5 md:p-10 w-full max-w-7xl">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-5 md:p-10 w-full max-w-7xl"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
           {consumerData.map((c, i) => (
             <motion.div
               key={i}
-              initial={{ y: "20%", opacity: "0" }}
-              whileInView={{
-                y: "0",
-                opacity: "1",
-                transition: { duration: 0.6, delay: 0.2 * i },
-              }}
+              variants={itemVariants}
               className="rounded-xl bg-white border border-gray-200 w-full overflow-hidden shadow-lg flex flex-col md:flex-row"
             >
               <div className="md:w-2/5 w-full">
@@ -96,25 +116,24 @@ export const HowItWorks = () => {
               </div>
             </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
 
-      <div className="w-full bg-white py-10 px-5 md:px-10 flex flex-col items-center justify-center">
         <h2
           className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight"
         >
           Joining Looper as a Partner
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-5 md:p-10 w-full max-w-7xl">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-5 md:p-10 w-full max-w-7xl"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
           {partnerData.map((c, i) => (
             <motion.div
               key={i}
-              initial={{ y: "20%", opacity: "0" }}
-              whileInView={{
-                y: "0",
-                opacity: "1",
-                transition: { duration: 0.6, delay: 0.2 * i },
-              }}
+              variants={itemVariants}
               className="rounded-xl bg-orange-50 border border-gray-200 w-full overflow-hidden shadow-lg flex flex-col md:flex-row"
             >
               <div className="md:w-2/5 w-full">
@@ -135,7 +154,7 @@ export const HowItWorks = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </>
   );

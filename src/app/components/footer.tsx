@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Facebook, Instagram,CallIncoming } from "iconsax-react";
 import { useState } from "react";
 
@@ -27,7 +28,7 @@ export const Footer = () => {
     <div className="">
       <div className="bg-slate-900 px-10 py-5 pb-5 text-white justify-between pt-8 grid  lg:grid-cols-10  sm:grid-cols-4 xs:grid-cols-1 xs:gap-4">
         <div className="lg:col-span-8 md:col-span-1">
-          <img src="./logo-black.svg" alt="logo" className=" w-[60px]" />
+          <Image src="/logo-black.svg" alt="logo" width={60} height={60} />
           <p className="font-semibold text-xs " style={{ lineHeight: "1.5" }}>
             <span className=" text-slate-300 text-xs  font-normal mt-1">
               Sell extra groceries, extras, <br></br>and more —

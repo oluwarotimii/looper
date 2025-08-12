@@ -32,7 +32,7 @@ export const Logo = () => {
       setscreenWidth(window.innerWidth);
       console.log(screenWidth);
     }
-  }, []);
+  }, [screenWidth]);
 
   return (
     <motion.svg

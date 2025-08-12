@@ -1,4 +1,5 @@
 // "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Facebook, HambergerMenu, Instagram } from "iconsax-react";
 import Link from "next/link";
@@ -39,10 +40,11 @@ export const Header = () => {
       >
         <div>
           {/* <p className="text-white">Looper.</p> */}
-          <img
-            src={scrollHeight ? "./logo.svg" : "./logo-black.svg"}
+          <Image
+            src={scrollHeight ? "/logo.svg" : "/logo-black.svg"}
             alt="logo"
-            className=" w-[100px]"
+            width={100}
+            height={100}
           />
         </div>
         <div className="flex items-center gap-4 justify-center">
@@ -78,10 +80,11 @@ export const Header = () => {
       >
         <p className="text-white py-2">
           {" "}
-          <img
-            src={scrollHeight ? "./logo.svg" : "./logo-black.svg"}
+          <Image
+            src={scrollHeight ? "/logo.svg" : "/logo-black.svg"}
             alt="logo"
-            className=" w-[60px]"
+            width={60}
+            height={60}
           />
         </p>
         <HambergerMenu
@@ -114,7 +117,7 @@ export const Header = () => {
             </div>
             <div className=" pb-5 flex items-center justify-center flex-col  gap-6">
               {" "}
-              <img src="./logo.svg" alt="logo" className=" w-[100px]" />
+              <Image src="/logo.svg" alt="logo" width={100} height={100} />
               <hr className="border border-slate-300 w-full border-dashed"></hr>
               <p className="text-[1rem] text-gray-300 font-semibold">MENU</p>
               {links.map((link, index) => (

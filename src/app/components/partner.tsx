@@ -11,6 +11,8 @@ export const PartnerWithUs = () => {
     phone_number: string;
     name: string;
     business_name: string;
+    role: string;
+    business_category: string;
   }
   interface IFormResponse {
     status: "success" | "failure";
@@ -32,6 +34,8 @@ export const PartnerWithUs = () => {
     phone_number: "",
     business_name: "",
     name: "",
+    role: "",
+    business_category: "",
   };
   const [formData, setFormData] = useState<IFormData>(initialData);
   const [responseMessage, setResponseMessage] = useState<null | IFormResponse>(
@@ -148,6 +152,46 @@ export const PartnerWithUs = () => {
                 setFormData({ ...formData, name: e.target?.value })
               }
             />
+          </div>
+          <div className="flex flex-col mb-5">
+            <label htmlFor="business_category" className="text-gray-400 text-sm mb-4">
+              Business Category
+            </label>
+            <select
+              id="business_category"
+              value={formData.business_category}
+              className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 mb-2"
+              onChange={(e) =>
+                setFormData({ ...formData, business_category: e.target?.value })
+              }
+            >
+              <option value="">Select Category</option>
+              <option value="Supermarket">Supermarket</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="Hotel">Hotel</option>
+              <option value="Bakery">Bakery</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div className="flex flex-col mb-5">
+            <label htmlFor="role" className="text-gray-400 text-sm mb-4">
+              Role
+            </label>
+            <select
+              id="role"
+              value={formData.role}
+              className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 mb-2"
+              onChange={(e) =>
+                setFormData({ ...formData, role: e.target?.value })
+              }
+            >
+              <option value="">Select Role</option>
+              <option value="Manager">Manager</option>
+              <option value="Owner">Owner</option>
+              <option value="Chef">Chef</option>
+              <option value="Event Planner">Event Planner</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div className="flex flex-col mb-5">
             {" "}

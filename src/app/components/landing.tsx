@@ -87,6 +87,28 @@ export const Landing = () => {
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
         />
       </AnimatePresence>
+      {/* Scattered SVGs */}
+      <div className="absolute inset-0 z-0 opacity-20">
+        {/* Original set with more varied positions and sizes */}
+        <Image src="/svg/asian-bowl.svg" alt="asian bowl" width={60} height={60} className="absolute top-5 left-[10%] rotate-12" />
+        <Image src="/svg/banana.svg" alt="banana" width={45} height={45} className="absolute top-[20%] right-[15%] -rotate-45" />
+        <Image src="/svg/bowl.svg" alt="bowl" width={70} height={70} className="absolute bottom-[10%] left-[25%] rotate-90" />
+        <Image src="/svg/bowl2.svg" alt="bowl2" width={50} height={50} className="absolute top-[30%] right-[5%] rotate-6" />
+        <Image src="/svg/donut.svg" alt="donut" width={65} height={65} className="absolute bottom-[5%] left-[5%] -rotate-12" />
+        <Image src="/svg/pizza.svg" alt="pizza" width={80} height={80} className="absolute top-[15%] right-[30%] rotate-180" />
+        <Image src="/svg/prawn.svg" alt="prawn" width={40} height={40} className="absolute bottom-[20%] right-[10%] rotate-30" />
+        <Image src="/svg/tacos.svg" alt="tacos" width={75} height={75} className="absolute top-[40%] left-[5%] -rotate-90" />
+
+        {/* Additional instances for more distribution */}
+        <Image src="/svg/asian-bowl.svg" alt="asian bowl" width={55} height={55} className="absolute top-[60%] left-[15%] rotate-45" />
+        <Image src="/svg/banana.svg" alt="banana" width={35} height={35} className="absolute bottom-[30%] right-[25%] rotate-15" />
+        <Image src="/svg/bowl.svg" alt="bowl" width={60} height={60} className="absolute top-[5%] left-[40%] -rotate-60" />
+        <Image src="/svg/bowl2.svg" alt="bowl2" width={40} height={40} className="absolute bottom-[5%] right-[40%] rotate-20" />
+        <Image src="/svg/donut.svg" alt="donut" width={50} height={50} className="absolute top-[70%] right-[5%] -rotate-30" />
+        <Image src="/svg/pizza.svg" alt="pizza" width={70} height={70} className="absolute bottom-[15%] left-[45%] rotate-10" />
+        <Image src="/svg/prawn.svg" alt="prawn" width={30} height={30} className="absolute top-[25%] left-[30%] -rotate-75" />
+        <Image src="/svg/tacos.svg" alt="tacos" width={60} height={60} className="absolute bottom-[40%] left-[50%] rotate-50" />
+      </div>
       <div className={`relative grid grid-cols-4 gap-6 max-w-6xl mx-auto p-8 items-center min-h-screen overflow-hidden ${currentContent.textColor}`}>
         {/* Left: Subtext */}
         <div className="col-span-1 lg:text-left text-center">
@@ -99,12 +121,14 @@ export const Landing = () => {
 
         {/* Center: Headline + Image */}
         <div className="col-span-2 text-center">
-          <AnimatePresence mode="wait">
-            <motion.h1 key={index + "headline"} variants={glitchVariants} initial="initial" animate="animate" exit="exit" className="mb-4">
-              <span className="font-ginger text-6xl leading-none">{currentContent.headline_part1}</span>{" "}
-              <span className={`${currentContent.highlightColor} font-ginger uppercase text-7xl`}>{currentContent.headline_part2}</span>
-            </motion.h1>
-          </AnimatePresence>
+          <div className="flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.h1 key={index + "headline"} variants={glitchVariants} initial="initial" animate="animate" exit="exit" className="inline-block"> 
+                <text className="font-ginger text-6xl leading-none m-3">{currentContent.headline_part1}</text>
+              </motion.h1>{" "}
+            </AnimatePresence>
+            <span className={`${currentContent.highlightColor} font-ginger uppercase text-7xl`}>{currentContent.headline_part2}</span>
+          </div>
           
           <AnimatePresence mode="wait">
             <motion.div

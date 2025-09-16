@@ -93,10 +93,10 @@ export const PartnerWithUs = () => {
 
   return (
     <div
-      className="w-full bg-black  mt-0 grid sm:grid-cols-2 xs:grid-cols-1 xs:p-10 items-center justify-center gap-8"
+      className="w-full bg-black  mt-0 grid sm:grid-cols-2 xs:grid-cols-1 xs:p-5 items-center justify-center gap-8"
       id="partner"
     >
-      <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-dvh">
+      <div className="relative w-full h-[150px] sm:h-[250px] md:h-[300px] lg:h-[350px]">
         <Image
           src="/female-shopkeeper-smiling-camera.jpg"
           alt="partner"
@@ -110,7 +110,7 @@ export const PartnerWithUs = () => {
 
       <div className="sm:mt-2 flex flex-col box-border">
         <p
-          className="font-ginger sm:text-[8rem] xs:text-[5rem] text-orange-400 p-0 m-0 text-left"
+          className="font-ginger sm:text-[4rem] xs:text-[2.5rem] text-orange-400 p-0 m-0 text-left"
           style={{ lineHeight: 0.75 }}
         >
           Partner With Looper
@@ -138,29 +138,29 @@ export const PartnerWithUs = () => {
               {responseMessage.message}
             </div>
           )}
-          <div className="flex flex-col mb-5">
+          <div className="flex flex-col mb-2">
             {" "}
-            <label htmlFor="name" className="text-gray-400 text-sm mb-4">
+            <label htmlFor="name" className="text-gray-400 text-sm mb-1">
               Full Name
             </label>
             <input
               value={formData.name}
               id="name"
               placeholder="e.g John Doe"
-              className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-10  mb-2"
+              className="p-2 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-8  mb-2"
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target?.value })
               }
             />
           </div>
-          <div className="flex flex-col mb-5">
-            <label htmlFor="business_category" className="text-gray-400 text-sm mb-4">
+          <div className="flex flex-col mb-2">
+            <label htmlFor="business_category" className="text-gray-400 text-sm mb-1">
               Business Category
             </label>
             <select
               id="business_category"
               value={formData.business_category}
-              className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 mb-2"
+              className="p-2 rounded-md bg-slate-100 outline-none border-none text-slate-600 mb-2"
               onChange={(e) =>
                 setFormData({ ...formData, business_category: e.target?.value })
               }
@@ -173,14 +173,14 @@ export const PartnerWithUs = () => {
               <option value="Other">Other</option>
             </select>
           </div>
-          <div className="flex flex-col mb-5">
-            <label htmlFor="role" className="text-gray-400 text-sm mb-4">
+          <div className="flex flex-col mb-2">
+            <label htmlFor="role" className="text-gray-400 text-sm mb-1">
               Role
             </label>
             <select
               id="role"
               value={formData.role}
-              className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 mb-2"
+              className="p-2 rounded-md bg-slate-100 outline-none border-none text-slate-600 mb-2"
               onChange={(e) =>
                 setFormData({ ...formData, role: e.target?.value })
               }
@@ -193,46 +193,46 @@ export const PartnerWithUs = () => {
               <option value="Other">Other</option>
             </select>
           </div>
-          <div className="flex flex-col mb-5">
+          <div className="flex flex-col mb-2">
             {" "}
-            <label htmlFor="name" className="text-gray-400 text-sm mb-4">
+            <label htmlFor="name" className="text-gray-400 text-sm mb-1">
               Business Name
             </label>
             <input
               id="business_name"
               value={formData.business_name}
               placeholder="e.g d'prince super market"
-              className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-10  mb-2"
+              className="p-2 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-8  mb-2"
               onChange={(e) =>
                 setFormData({ ...formData, business_name: e.target?.value })
               }
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="flex flex-col mb-5">
-              <label htmlFor="name" className="text-gray-400 text-sm mb-4">
+            <div className="flex flex-col mb-2">
+              <label htmlFor="name" className="text-gray-400 text-sm mb-1">
                 Phone Number
               </label>
               <input
                 id="phone_number"
                 placeholder="e.g +2348136197158"
-                className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-10  mb-2"
+                className="p-2 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-8  mb-2"
                 value={formData.phone_number}
                 onChange={(e) =>
                   setFormData({ ...formData, phone_number: e.target?.value })
                 }
               />
             </div>
-            <div className="flex flex-col mb-5">
+            <div className="flex flex-col mb-2">
               {" "}
-              <label htmlFor="name" className="text-gray-400 text-sm mb-4">
+              <label htmlFor="name" className="text-gray-400 text-sm mb-1">
                 Email (optional)
               </label>
               <input
                 id="email"
                 value={formData.email}
                 placeholder="e.g johndoe@mail.com"
-                className="p-3 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-10  mb-2"
+                className="p-2 rounded-md bg-slate-100 outline-none border-none text-slate-600 h-8  mb-2"
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target?.value })
                 }

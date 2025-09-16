@@ -1,6 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,132 +32,136 @@ import partnerReduceImage from "../../../public/restuarant-food.jpg";
 import partnerEarnImage from "../../../public/bio-food-market-woman-stand.jpg";
 
 export const HowItWorks = () => {
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState('customer'); // 'customer' or 'partner'
+
   const consumerData = [
     {
-      value: "Browse",
-      img: browseImage,
-      decr: "Browse nearby surplus meals in real-time",
+      title: "Browse",
+      description: "Browse nearby surplus meals in real-time",
+      image: browseImage,
     },
     {
-      value: "Order & Pay",
-      img: orderPayImage,
-      decr: "Order & Pay securely via Paystack",
+      title: "Order & Pay",
+      description: "Order & Pay securely.",
+      image: orderPayImage,
     },
     {
-      value: "Pick Up",
-      img: pickUpImage,
-      decr: "Pick Up at your convenience or choose delivery",
+      title: "Pick Up",
+      description: "Pick Up at your convenience or choose delivery",
+      image: pickUpImage,
     },
     {
-      value: "Enjoy & Share",
-      img: enjoyImage,
-      decr: "Enjoy & Share your food Loop experience",
+      title: "Enjoy & Share",
+      description: "Enjoy & Share your food Loop experience",
+      image: enjoyImage,
     },
   ];
 
   const partnerData = [
     {
-      value: "Create & Verify",
-      img: partnerJoinImage,
-      decr: "Create an account, verify your business, and start listing your extra food.",
+      title: "Create & Verify",
+      description: "Create an account, verify your business, and start listing your extra food.",
+      image: partnerJoinImage,
     },
     {
-      value: "Reach New Customers",
-      img: partnerReachImage,
-      decr: "Connect with a growing community that values sustainable and affordable meals.",
+      title: "Reach New Customers",
+      description: "Connect with a growing community that values sustainable and affordable meals.",
+      image: partnerReachImage,
     },
     {
-      value: "Reduce Waste",
-      img: partnerReduceImage,
-      decr: "Minimise food waste and make a positive impact on the environment.",
+      title: "Reduce Waste",
+      description: "Minimise food waste and make a positive impact on the environment.",
+      image: partnerReduceImage,
     },
     {
-      value: "Earn Revenue",
-      img: partnerEarnImage,
-      decr: "Turn surplus meals into extra income — no waste, just gains.",
+      title: "Earn Revenue",
+      description: "Turn surplus meals into extra income — no waste, just gains.",
+      image: partnerEarnImage,
     },
   ];
 
-  return (
-    <>
-      <div className="w-full bg-orange-50 py-10 px-5 md:px-10 flex flex-col items-center justify-center">
-        <h2
-          className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight"
-        >
-          How Looper works?
-        </h2>
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-5 md:p-10 w-full max-w-7xl"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          {consumerData.map((c, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              className="rounded-xl bg-white border border-gray-200 w-full overflow-hidden shadow-lg flex flex-col md:flex-row"
-            >
-              <div className="md:w-2/5 w-full">
-                <Image
-                  src={c?.img}
-                  alt={c.value}
-                  className="w-full h-full object-cover"
-                  style={{ aspectRatio: '4/3' }}
-                  priority
-                />
-              </div>
-              <div className="p-6 md:w-3/5 w-full flex flex-col justify-center">
-                <p className="p-3 bg-orange-100 text-orange-400 font-bold rounded-full inline-flex items-center justify-center text-lg mb-4 w-fit">
-                  {i + 1}
-                </p>
-                <h3 className="text-2xl text-orange-400 font-bold mb-2">{c.value}</h3>
-                <p className="text-base text-gray-600">{c.decr}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+  const currentSteps = activeTab === 'customer' ? consumerData : partnerData;
 
-        <h2
-          className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight"
-        >
-          Joining Looper as a Partner
-        </h2>
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-5 md:p-10 w-full max-w-7xl"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          {partnerData.map((c, i) => (
+  // Auto-play functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStepIndex((prevIndex) => (prevIndex + 1) % currentSteps.length);
+    }, 5000); // Change step every 5 seconds
+    return () => clearInterval(interval);
+  }, [activeTab, currentSteps.length]); // Reset interval on tab change
+
+  return (
+    <div className="w-full bg-orange-50 py-5 px-1 md:px-10 flex flex-col md:flex-row items-start justify-center h-full" id="how-it-works">
+      <h2 className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight md:hidden">How Looper works?</h2>
+
+      {/* Left Column: Image Area */}
+      <div className="w-full md:w-1/2 flex justify-center items-center p-5 md:p-10 md:pt-32">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeStepIndex}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-md rounded-xl overflow-hidden shadow-lg"
+          >
+            <Image
+              src={currentSteps[activeStepIndex].image}
+              alt={currentSteps[activeStepIndex].title}
+              width={350}
+              height={250}
+              className="w-full h-auto object-cover aspect-[4/3] mt-10"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Right Column: Steps List */}
+      <div className="w-full md:w-1/2 p-5 md:p-10">
+        <h2 className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight hidden md:block">How Looper works?</h2>
+        
+        {/* Tab Navigation */}
+        <div className="flex justify-center mb-6">
+          <button
+            className={`px-6 py-2 rounded-l-lg font-bold transition-colors duration-300 ${activeTab === 'customer' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+            onClick={() => { setActiveTab('customer'); setActiveStepIndex(0); }}
+          >
+            Customer
+          </button>
+          <button
+            className={`px-6 py-2 rounded-r-lg font-bold transition-colors duration-300 ${activeTab === 'partner' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+            onClick={() => { setActiveTab('partner'); setActiveStepIndex(0); }}
+          >
+            Partner
+          </button>
+        </div>
+
+        <div className="flex flex-col gap-3"> {/* Reduced gap */}
+          {currentSteps.map((step, index) => (
             <motion.div
-              key={i}
-              variants={itemVariants}
-              className="rounded-xl bg-orange-50 border border-gray-200 w-full overflow-hidden shadow-lg flex flex-col md:flex-row"
+              key={index}
+              className={`p-3 rounded-xl cursor-pointer transition-all duration-300 ${index === activeStepIndex ? 'bg-orange-100 shadow-md' : 'bg-white hover:bg-gray-50'}`} // Reduced padding
+              onClick={() => setActiveStepIndex(index)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }} 
             >
-              <div className="md:w-2/5 w-full">
-                <Image
-                  src={c?.img}
-                  alt={c.value}
-                  className="w-full h-full object-cover"
-                  style={{ aspectRatio: '4/3' }}
-                  priority
-                />
+              <div className="flex items-center mb-1"> {/* Reduced margin-bottom */}
+                <span className="text-lg mr-3 p-2 bg-orange-200 text-orange-700 rounded-full font-bold flex items-center justify-center w-8 h-8">{index + 1}</span> {/* Replaced emoji with number, adjusted size */}
+                <h3 className={`text-lg font-bold ${index === activeStepIndex ? 'text-orange-600' : 'text-gray-800'}`}> {/* Reduced text size */}
+                  {step.title}
+                </h3>
               </div>
-              <div className="p-6 md:w-3/5 w-full flex flex-col justify-center">
-                <p className="p-3 bg-orange-100 text-orange-400 font-bold rounded-full inline-flex items-center justify-center text-lg mb-4 w-fit">
-                  {i + 1}
-                </p>
-                <h3 className="text-2xl text-orange-400 font-bold mb-2">{c.value}</h3>
-                <p className="text-base text-gray-600">{c.decr}</p>
-              </div>
+              <p className={`text-xs ${index === activeStepIndex ? 'text-orange-700' : 'text-gray-600'}`}> {/* Reduced text size */}
+                {step.description}
+              </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

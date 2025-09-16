@@ -1,147 +1,161 @@
 "use client";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
+const content = [
+  {
+    subtext: "Join the movement. Sell your surplus, reduce waste, and earn extra income. It's a win-win for you and the planet.",
+    headline_part1: "Loop the",
+    headline_part2: "SURPLUS",
+    image: "/hero/vegs.png",
+    bgColor: "bg-orange-500",
+    textColor: "text-white",
+    buttonColor: "bg-green-500",
+    buttonHoverColor: "hover:bg-green-600",
+    highlightColor: "text-zinc-900"
+  },
+  {
+    subtext: "Delicious meals at unbeatable prices. Get access to tasty surplus food from your favorite local spots and help fight food waste.",
+    headline_part1: "Eat the",
+    headline_part2: "SURPLUS",
+    image: "/hero/food.png",
+    bgColor: "bg-green-600",
+    textColor: "text-white",
+    buttonColor: "bg-orange-500",
+    buttonHoverColor: "hover:bg-orange-600",
+    highlightColor: "text-orange-400"
+  },
+  {
+    subtext: "Be a hero. Every meal you rescue is a step towards a more sustainable future. Save food, save money, save the planet.",
+    headline_part1: "Rescue the ",
+    headline_part2: "SURPLUS",
+    image: "/hero/past.png",
+    bgColor: "bg-zinc-900",
+    textColor: "text-white",
+    buttonColor: "bg-orange-500",
+    buttonHoverColor: "hover:bg-orange-600",
+    highlightColor: "text-orange-400"
+  },
+  // {
+  //   subtext: "Discover amazing deals and unique finds from local vendors. Your next favorite thing is just a click away.",
+  //   headline_part1: "Shop",
+  //   headline_part2: "SURPLUS",
+  //   image: "/hero/food.png",
+  //   bgColor: "bg-gray-100",
+  //   textColor: "text-zinc-900",
+  //   buttonColor: "bg-green-500",
+  //   buttonHoverColor: "hover:bg-green-600",
+  //   highlightColor: "text-orange-400"
+  // }
+];
+
+const glitchVariants = {
+  initial: { opacity: 0, x: -10, skewX: "10deg" },
+  animate: { opacity: 1, x: 0, skewX: "0deg", transition: { duration: 0.3, ease: "easeOut" } },
+  exit: { opacity: 0, x: 10, skewX: "-10deg", transition: { duration: 0.2, ease: "easeIn" } },
+};
+
+const imageVariants = {
+  initial: { opacity: 0, scale: 0.95 },
+  animate: { opacity: 1, scale: 1.05, transition: { duration: 0.4, ease: "easeOut" } },
+  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3, ease: "easeIn" } },
+}
 
 export const Landing = () => {
-  const [slideMaxLength] = useState(2);
-  const [current, setCurrent] = useState(0);
-  const [elapsed, setElapsed] = useState(0);
+  const [index, setIndex] = useState(0);
 
-  const data = [
-    {
-      title: "Loop the",
-      img: "./vegetables-basket.jpg",
-      color: "bg-orange-600",
-      description:
-        "Sell extra food, restaurant surpluses and more — reduce waste, earn effortlessly.",
-    },
-    {
-      title: "Eat the",
-      img: "./display-image.jpg",
-      color: "bg-[#18181b]",
-      description:
-        "Get in the loop to reduce waste – enjoy tasty meals from your favourite spots at unbelievable discount and our pockets",
-    },
-  ];
-
-  // Change slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slideMaxLength);
-      setElapsed(0);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [slideMaxLength]);
+      setIndex((prevIndex) => (prevIndex + 1) % content.length);
+    }, 5000); // Switch every 5 seconds
 
-  // Update elapsed time
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setElapsed((prev) => Math.min(prev + 1, 5));
-    }, 1000);
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, []);
 
+  const currentContent = content[index];
+
   return (
-    <div className="h-dvh sm:w-full relative">
-      <div
-        className={`h-full sm:w-full flex items-center justify-center flex-col lg:flex-row md:flex-row xs:flex-col ${
-          data[current]?.color
-        }`}
-      >
-        <div className="w-full md:w-1/2 xs:min-h-[70dvh] pl-10 xs:p-10 mt-0 xs:mt-40 flex items-center flex-col">
-          <div className="w-fit text-justify overflow-hidden">
-            <motion.p
-              key={`title-${current}`}
-              className="text-white text-[3rem] text-center gap-4 xs:w-full flex justify-center font-ginger"
-              transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
-            >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
-                className="inline-block overflow-hidden"
-              >
-                {data[current]?.title}
-              </motion.span>
+    // Wave design added below
+    <div className="relative min-h-screen w-full">
+      <AnimatePresence>
+        <motion.div
+          key={index + "bg"}
+          className={`absolute inset-0 ${currentContent.bgColor}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
+          exit={{ opacity: 0, transition: { duration: 0.5 } }}
+        />
+      </AnimatePresence>
+      <div className={`relative grid grid-cols-4 gap-6 max-w-6xl mx-auto p-8 items-center min-h-screen overflow-hidden ${currentContent.textColor}`}>
+        {/* Left: Subtext */}
+        <div className="col-span-1 lg:text-left text-center">
+          <AnimatePresence mode="wait">
+            <motion.p key={index + "subtext"} variants={glitchVariants} initial="initial" animate="animate" exit="exit">
+              {currentContent.subtext}
             </motion.p>
+          </AnimatePresence>
+        </div>
 
-            <motion.p
-              key={`surplus-${current}`}
-              className="text-slate-100 md:text-[20rem] xs:text-[15rem] w-full flex gap-2 font-ginger"
-              style={{ lineHeight: 0.8 }}
-              transition={{ duration: 1, delay: 0.3, staggerChildren: 0.4 }}
+        {/* Center: Headline + Image */}
+        <div className="col-span-2 text-center">
+          <AnimatePresence mode="wait">
+            <motion.h1 key={index + "headline"} variants={glitchVariants} initial="initial" animate="animate" exit="exit" className="mb-4">
+              <span className="font-ginger text-6xl leading-none">{currentContent.headline_part1}</span>{" "}
+              <span className={`${currentContent.highlightColor} font-ginger uppercase text-7xl`}>{currentContent.headline_part2}</span>
+            </motion.h1>
+          </AnimatePresence>
+          
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index + "image"}
+              variants={imageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="mx-auto"
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-                className="inline-block overflow-hidden text-orange-100"
-              >
-                SURPLUS
-              </motion.span>
-            </motion.p>
+              <Image 
+                src={currentContent.image} 
+                alt={currentContent.headline_part2}
+                width={400} 
+                height={400} 
+                className="mx-auto object-contain w-96 h-96"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Right: CTA */}
+        <div className="col-span-1 flex justify-center lg:justify-end">
+          <div className="flex flex-col items-center mt-20 lg:items-end">
+             <p className="text-xs opacity-80 mt-2 mb-5 ">Free to join & no commitments.</p>
+            <button className={`text-white px-6 py-2 rounded-lg shadow-lg transition-colors ${currentContent.buttonColor} ${currentContent.buttonHoverColor}`}>
+              Get Started
+            </button>
           </div>
-
-          <motion.p
-            key={`desc-${current}`}
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 0.3, delay: 1 }}
-            className="mt-2 text-sm font-sans text-slate-100 font-light leading-6 sm:w-[400px] text-left xs:text-center"
-          >
-            {data[current]?.description}
-          </motion.p>
-
-          {current === 0 && (
-            <motion.a
-              key={`cta-${current}`}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.3, delay: 1.2 }}
-              href="#partner"
-              className="bg-[#009832] text-white font-semibold p-5 rounded-[120px] mt-4 text-lg hover:p-6 transition-all ease-in-out duration-500 cursor-pointer whitespace-nowrap flex items-center justify-between gap-x-1"
-            >
-              <p>Get Started</p>
-            </motion.a>
-          )}
-        </div>
-
-        <div
-          className="w-1/2 h-full xs:bg-no-repeat bg-cover xs:bg-center hidden md:block"
-          style={{
-            backgroundImage: `url('${data[current]?.img}')`,
-          }}
-        ></div>
-      </div>
-
-      <div className="absolute bottom-7 w-full flex pl-10 justify-start items-center gap-4">
-        <div className="flex gap-2">
-          {Array(slideMaxLength)
-            .fill("")
-            .map((_, index) => {
-              const progress = current === index ? Math.min(elapsed / 5, 1) : 0;
-              const padding = 16 * progress;
-
-              return (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setCurrent(index);
-                    setElapsed(0);
-                  }}
-                  className={`h-3 w-3 rounded-full transition-all bg-gray-300  ${
-                    current === index ? "bg-opacity-100" : "bg-opacity-35"
-                  }`}
-                  style={
-                    current === index
-                      ? { paddingLeft: padding, paddingRight: padding }
-                      : { paddingLeft: 0, paddingRight: 0 }
-                  }
-                />
-              );
-            })}
         </div>
       </div>
+      {/* Bottom Wave Divider */}
+   {/* Bottom Wave Divider */}
+<div className="absolute bottom-0 left-0 w-full z-10 overflow-hidden">
+  <svg
+    id="visual"
+    viewBox="0 0 900 600"
+    width="100%"
+    height="300"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 515L5.2 514.8C10.3 514.7 20.7 514.3 31 520.2C41.3 526 51.7 538 62 541.3C72.3 544.7 82.7 539.3 93 539.7C103.3 540 113.7 546 124 538.8C134.3 531.7 144.7 511.3 155 507.5C165.3 503.7 175.7 516.3 186 511.5C196.3 506.7 206.7 484.3 217 480.5C227.3 476.7 237.7 491.3 248 492C258.3 492.7 268.7 479.3 279 484.8C289.3 490.3 299.7 514.7 310 526C320.3 537.3 330.7 535.7 341 525.8C351.3 516 361.7 498 372 500.7C382.3 503.3 392.7 526.7 403 538.2C413.3 549.7 423.7 549.3 434.2 549.3C444.7 549.3 455.3 549.7 465.8 537.2C476.3 524.7 486.7 499.3 497 499.3C507.3 499.3 517.7 524.7 528 538.5C538.3 552.3 548.7 554.7 559 546.8C569.3 539 579.7 521 590 505.3C600.3 489.7 610.7 476.3 621 480.8C631.3 485.3 641.7 507.7 652 519C662.3 530.3 672.7 530.7 683 528.8C693.3 527 703.7 523 714 520.5C724.3 518 734.7 517 745 524.2C755.3 531.3 765.7 546.7 776 540.3C786.3 534 796.7 506 807 500.8C817.3 495.7 827.7 513.3 838 516.5C848.3 519.7 858.7 508.3 869 511.2C879.3 514 889.7 531 894.8 539.5L900 548L900 600H0Z"
+      fill="#FFF"
+      strokeLinecap="round"
+      strokeLinejoin="miter"
+    />
+  </svg>
+</div>
+
     </div>
   );
 };

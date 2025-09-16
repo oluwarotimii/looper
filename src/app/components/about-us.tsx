@@ -28,7 +28,7 @@ export const Aboutus = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.4 }}
           >
-            About Us
+            Get to Know Us
           </motion.p>
           <p className="text-sm md:text-base leading-relaxed text-center md:text-left">
             We are Looper! Nigeria&apos;s first surplus food platform. <br />

@@ -160,7 +160,7 @@ export const Landing = () => {
           </div>
         </div>
       </div>
-      {/* Bottom Wave Divider */}
+     
    {/* Bottom Wave Divider */}
 <div className="absolute bottom-0 left-0 w-full z-10 overflow-hidden">
   <svg

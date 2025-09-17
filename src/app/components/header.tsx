@@ -53,9 +53,7 @@ export const Header = () => {
               <Link
                 key={i}
                 href={link.path}
-                className={`text-[10.5px] ${
-                  scrollHeight ? "text-slate-100" : "text-slate-900"
-                }  uppercase hover:border-b-2 transition-all ease-in-out duration-400`}
+                className="text-[10.5px] text-white uppercase hover:border-b-2 transition-all ease-in-out duration-400"
               >
                 {link.label}
               </Link>
@@ -63,9 +61,7 @@ export const Header = () => {
           </div>
           <Link
             href="#partner"
-            className={` ${
-              !scrollHeight ? "text-slate-100" : "text-slate-900"
-            } bg-orange-400  p-2 rounded-[200px] text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer`}
+            className="text-white bg-orange-400  p-2 rounded-[200px] text-xs hover:bg-slate-200 transition-all ease-in-out duration-500 cursor-pointer"
           >
             Get Started
           </Link>
@@ -74,7 +70,7 @@ export const Header = () => {
 
       {/* small scrren header */}
       <div
-        className={`flex justify-between items-center fixed w-dvw p-3 sm:hidden smallPhone:flex z-[20000001] ${
+        className={`flex justify-between items-center fixed w-dvw p-3 sm:hidden z-[20000001] ${
           scrollHeight && "bg-gray-950"
         } `}
       >

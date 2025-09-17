@@ -60,7 +60,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-1 flex flex-col  md:col-span-1 sm:items-end">
+        <div className="lg:col-span-1 flex flex-col  md:col-span-1 items-center sm:items-end">
           <div className="flex flex-col items-start mb-4">
             <p className="font-medium text-xs text-slate-300">
               Contact Us

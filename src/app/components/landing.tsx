@@ -77,7 +77,7 @@ export const Landing = () => {
 
   return (
     // Wave design added below
-    <div className="relative min-h-screen w-full">
+    <div className="relative min-h-[50vh] w-full">
       <AnimatePresence>
         <motion.div
           key={index + "bg"}
@@ -109,9 +109,9 @@ export const Landing = () => {
         <Image src="/svg/prawn.svg" alt="prawn" width={30} height={30} className="absolute top-[25%] left-[30%] -rotate-75" />
         <Image src="/svg/tacos.svg" alt="tacos" width={60} height={60} className="absolute bottom-[40%] left-[50%] rotate-50" />
       </div>
-      <div className={`relative grid grid-cols-4 gap-6 max-w-6xl mx-auto p-8 items-center min-h-screen overflow-hidden ${currentContent.textColor}`}>
+      <div className={`relative grid grid-cols-1 sm:grid-cols-4 gap-6 max-w-6xl mx-auto p-8 items-center min-h-screen overflow-hidden ${currentContent.textColor}`}>
         {/* Left: Subtext */}
-        <div className="col-span-1 lg:text-left text-center">
+        <div className="col-span-1 text-center lg:text-left hidden sm:block">
           <AnimatePresence mode="wait">
             <motion.p key={index + "subtext"} variants={glitchVariants} initial="initial" animate="animate" exit="exit">
               {currentContent.subtext}
@@ -120,14 +120,14 @@ export const Landing = () => {
         </div>
 
         {/* Center: Headline + Image */}
-        <div className="col-span-2 text-center">
+        <div className="col-span-1 sm:col-span-2 text-center">
           <div className="flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.h1 key={index + "headline"} variants={glitchVariants} initial="initial" animate="animate" exit="exit" className="inline-block"> 
-                <text className="font-ginger text-6xl leading-none m-3">{currentContent.headline_part1}</text>
+                <text className="font-ginger text-4xl sm:text-6xl leading-none m-3">{currentContent.headline_part1}</text>
               </motion.h1>{" "}
             </AnimatePresence>
-            <span className={`${currentContent.highlightColor} font-ginger uppercase text-7xl`}>{currentContent.headline_part2}</span>
+            <span className={`${currentContent.highlightColor} font-ginger uppercase text-5xl sm:text-7xl`}>{currentContent.headline_part2}</span>
           </div>
           
           <AnimatePresence mode="wait">
@@ -144,7 +144,7 @@ export const Landing = () => {
                 alt={currentContent.headline_part2}
                 width={400} 
                 height={400} 
-                className="mx-auto object-contain w-96 h-96"
+                className="mx-auto object-contain w-80 h-80 sm:w-86 sm:h-86"
               />
             </motion.div>
           </AnimatePresence>
@@ -152,7 +152,7 @@ export const Landing = () => {
 
         {/* Right: CTA */}
         <div className="col-span-1 flex justify-center lg:justify-end">
-          <div className="flex flex-col items-center mt-20 lg:items-end">
+          <div className="flex flex-col items-center mt-0 lg:mt-5 lg:items-end">
              <p className="text-xs opacity-80 mt-2 mb-5 ">Free to join & no commitments.</p>
             <button className={`text-white px-6 py-2 rounded-lg shadow-lg transition-colors ${currentContent.buttonColor} ${currentContent.buttonHoverColor}`}>
               Get Started

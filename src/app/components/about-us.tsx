@@ -43,10 +43,10 @@ export const Aboutus = () => {
         </svg>
       </div>
       <div className="max-w-6xl w-full"> {/* Single column container */}
-        <div className="flex items-center justify-between mb-5"> {/* Container for title and SVG */}
+        <div className="flex flex-row items-center mb-5 flex-nowrap"> {/* Container for title and SVG */}
           <motion.p
-            className="font-ginger text-6xl md:text-8xl text-gray-800" // Removed text-center/left
-            style={{ lineHeight: 0.75 }}
+            className="font-ginger text-4xl md:text-8xl text-gray-800" // Removed text-center/left
+            style={{ lineHeight: 1 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.4 }}
@@ -56,8 +56,8 @@ export const Aboutus = () => {
           <Image
             src="/svg/loop.svg"
             alt="Looper Logo"
-            width={50} // Tiny size
-            height={50} // Tiny size
+            width={30} // Tiny size
+            height={30} // Tiny size
             className="rotate-45" // Keep tilt
           />
         </div>

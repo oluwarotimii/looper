@@ -93,7 +93,8 @@ export const HowItWorks = () => {
 
   return (
     <div className="w-full bg-orange-50 py-5 px-1 md:px-10 flex flex-col md:flex-row items-start justify-center h-full" id="how-it-works">
-      <h2 className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight md:hidden">How Looper works?</h2>
+      <h2 className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight">How Looper works?</h2>
+      
 
       {/* Left Column: Image Area */}
       <div className="w-full md:w-1/2 flex justify-center items-center p-5 md:p-10 md:pt-32">
@@ -109,8 +110,6 @@ export const HowItWorks = () => {
             <Image
               src={currentSteps[activeStepIndex].image}
               alt={currentSteps[activeStepIndex].title}
-              width={350}
-              height={250}
               className="w-full h-auto object-cover aspect-[4/3] mt-10"
               priority
             />
@@ -120,7 +119,7 @@ export const HowItWorks = () => {
 
       {/* Right Column: Steps List */}
       <div className="w-full md:w-1/2 p-5 md:p-10">
-        <h2 className="font-ginger text-gray-800 mb-8 text-center text-5xl md:text-7xl lg:text-8xl leading-tight hidden md:block">How Looper works?</h2>
+        
         
         {/* Tab Navigation */}
         <div className="flex justify-center mb-6">
